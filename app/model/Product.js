@@ -80,6 +80,6 @@ module.exports = (app) => {
       _t: Number,
     }],
     _d: Boolean,
-  });
+  }, { collection: 'product' });
   return mongoose.model('Product', ProductSchema);
 };
