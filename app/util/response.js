@@ -7,7 +7,7 @@ class Response {
   static success(result) {
     return {
       code: 0,
-      data: result.data || [],
+      data: result || [],
     };
   }
   static error(result) {
