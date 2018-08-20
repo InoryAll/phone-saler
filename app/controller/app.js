@@ -1,5 +1,5 @@
-const Model = require('../mocks/article/list');
 const Controller = require('egg').Controller;
+const Model = require('../mocks/article/list');
 const DemandService = require('../service/DemandService');
 
 class AppController extends Controller {
