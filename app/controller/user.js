@@ -7,6 +7,7 @@ const UserService = require('../service/UserService');
 
 class UserController extends Controller {
   async getUser() {
+    console.log('Get User', 11111111111111);
     await UserService.getUser(this.ctx);
   }
 }
