@@ -32,7 +32,7 @@ class UserDao {
       multi: false,
     };
     try {
-      const queryResult = UserModel
+      const queryResult = await UserModel
         .update({ ...reg }, { $set: { ...user_obj } }, Object.assign({}, defaultOptions, options || {}));
       return Response.success(queryResult);
     } catch (err) {
@@ -42,7 +42,7 @@ class UserDao {
   static async deleteUser(ctx, reg) {
     const UserModel = ctx.model.User;
     try {
-      const queryResult = UserModel.remove({ ...reg });
+      const queryResult = await UserModel.remove({ ...reg });
       return Response.success(queryResult);
     } catch (err) {
       return Response.error({ err });
