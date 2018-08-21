@@ -37,10 +37,10 @@ module.exports = app => {
 
   exports.mongoose = {
     client: {
-      url: 'mongodb://127.0.0.1:27017/zeus',
+      url: 'mongodb://127.0.0.1:27017/phones',
       options: {
-        user: 'zeus',
-        pass: '123456',
+        user: 'normal',
+        pass: '10086',
         useNewUrlParser: true
       },
     },
