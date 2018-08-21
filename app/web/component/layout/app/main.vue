@@ -1,17 +1,20 @@
 <template>
-   <div>
-     <LayoutHeader></LayoutHeader>
-     <LayoutContent>
-       <div slot="content"><slot name="main"></slot></div>
-     </LayoutContent>
-     <LayoutFooter></LayoutFooter>
-   </div>
+ <div>
+   <!--<LayoutHeader>-->
+       <!--<div slot="header"><slot name="top"></slot></div>-->
+   <!--</LayoutHeader>-->
+   <LayoutContent>
+     <div slot="content"><slot name="main"></slot></div>
+   </LayoutContent>
+   <!--<LayoutFooter>-->
+       <!--<div slot="header"><slot name="bottom"></slot></div>-->
+   <!--</LayoutFooter>-->
+ </div>
 </template>
 <style>
-    @import "../../../asset/css/global.css";
-
-    body{
-    margin: 0 0px;
+@import "../../../asset/css/global.css";
+  body{
+    margin: 0 0;
   }
   a{
     text-decoration: none;

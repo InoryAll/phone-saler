@@ -10,13 +10,13 @@ export default {
   },
   computed: {
     vTitle() {
-      return this.$root.title || this.title || 'Egg + Vue';
+      return this.$root.title || this.title || 'phone saler';
     },
     vKeywords() {
-      return this.$root.keywords || this.keywords || 'egg, vue, webpack, server side render';
+      return this.$root.keywords || this.keywords || 'phone saler';
     },
     vDescription() {
-      return this.$root.description || this.description || 'egg-vue-webpack server side render';
+      return this.$root.description || this.description || 'phone saler';
     },
     baseClass() {
       return this.$root.baseClass;
