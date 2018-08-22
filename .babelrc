@@ -3,7 +3,14 @@
   "plugins": [
     "transform-object-rest-spread",
     "syntax-dynamic-import",
-    "transform-object-assign"
+    "transform-object-assign",
+    [
+      "component",
+      {
+        "libraryName": "mint-ui",
+        "style": true
+      }
+    ]
   ],
   "comments": false
 }

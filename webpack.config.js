@@ -12,7 +12,7 @@ module.exports = {
     store: 'app/web/store',
     vue: 'vue/dist/vue.esm.js',
   },
-  dll: ['vue', 'axios', 'vue-router', 'vuex', 'vuex-router-sync'],
+  dll: ['vue', 'axios', 'vue-router', 'vuex', 'vuex-router-sync', 'mint-ui'],
   loaders: {},
   plugins: {},
   done() {

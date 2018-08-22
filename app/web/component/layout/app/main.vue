@@ -6,9 +6,7 @@
    <LayoutContent>
      <div slot="content"><slot name="main"></slot></div>
    </LayoutContent>
-   <!--<LayoutFooter>-->
-       <!--<div slot="header"><slot name="bottom"></slot></div>-->
-   <!--</LayoutFooter>-->
+   <LayoutFooter></LayoutFooter>
  </div>
 </template>
 <style>
