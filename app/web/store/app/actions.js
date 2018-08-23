@@ -11,6 +11,18 @@ const host = 'http://127.0.0.1:7001';
 
 const actions = {
 
+  TAB_BAR_CHANGE: ({ commit, dispatch, state }, { tabKey }) => {
+
+  },
+
+  // 处理路由变化
+  ROUTE_CHANGE: ({ commit, dispatch, state }, { route }) => {
+    if (route) {
+      commit(Type.ROUTE_CHANGE, { route });
+      return route;
+    }
+  },
+
   FETCH_ARTICLE_LIST: ({ commit, dispatch, state }) => {
     if (!state.articleList.length) {
       return axios.get(`${host}/api/article/list`)

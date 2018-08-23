@@ -2,10 +2,15 @@
 
 import {
   SET_ARTICLE_LIST,
-  SET_ARTICLE_DETAIL
-} from './mutation-type'
+  SET_ARTICLE_DETAIL,
+  ROUTE_CHANGE,
+} from './mutation-type';
 
 const mutations = {
+  [ROUTE_CHANGE] (state, { route }){
+    console.log(route);
+    state.route = route;
+  },
   [SET_ARTICLE_LIST] (state, items){
     state.articleList = items;
   },

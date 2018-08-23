@@ -29,6 +29,7 @@
    * Created by tianrenjie on 2018/8/22
    */
   import Vue from 'vue';
+  import _ from 'lodash';
   import { Tabbar, TabItem } from 'mint-ui';
 
   Vue.component(Tabbar.name, Tabbar);
@@ -42,6 +43,12 @@
       return {
         selected: '首页',
       };
+    },
+    watch: {
+      selected: {
+        handler(newValue, oldValue) {
+        },
+      },
     },
     computed: {},
     methods: {},
