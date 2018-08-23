@@ -8,7 +8,7 @@
     </ul>
   </div>
 </template>
-<style type="less">
+<style lang="less">
   .detail-li{
     padding: 20px 10px;
   }
@@ -37,7 +37,7 @@
     //      ]);
     //    },
     beforeMount() {
-      let { id } = this.$store.state.route.params;
+      const { id } = this.$store.state.route.params;
       return Promise.all([
         this.$store.dispatch('FETCH_ARTICLE_DETAIL', { id })
       ]);

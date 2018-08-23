@@ -12,6 +12,6 @@
     methods: {},
   };
 </script>
-<style type="less">
+<style lang="less">
 
 </style>
