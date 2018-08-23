@@ -5,7 +5,7 @@
       :swipeable="false"
     >
       <mt-tab-container-item id="首页">
-        首页
+        <MainPage></MainPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="分类">
         分类
@@ -25,13 +25,14 @@
   import _ from 'lodash';
   import { TabContainer, TabContainerItem } from 'mint-ui';
   import * as Types from '../../../store/app/mutation-type';
+  import MainPage from '../main/main';
 
   Vue.component(TabContainer.name, TabContainer);
   Vue.component(TabContainerItem.name, TabContainerItem);
 
   export default {
     name: 'index',
-    components: {},
+    components: { MainPage },
     props: {},
     data() {
       return {
