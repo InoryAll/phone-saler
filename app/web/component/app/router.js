@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../../store/store';
 import * as Types from '../../store/app/mutation-type';
+
+import Index from './index/index';
 import ListView from './list';
 
 Vue.use(VueRouter);
@@ -12,7 +14,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: ListView
+      component: Index
     },
     {
       path: '/list',

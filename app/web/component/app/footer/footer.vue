@@ -57,6 +57,7 @@
     },
     watch: {
       selected: {
+        // 监听this.selected，同步改变vuex中的tabKey的值
         handler(newValue, oldValue) {
           if (!_.isEqual(newValue, oldValue)) {
             return Promise.all([
@@ -64,6 +65,14 @@
             ]);
           }
         },
+      },
+      tabKey: {
+        handler(newValue, oldValue) {
+          // 当tabKey状态变化时，如果newValue！==this.selected，则不是组件本身的变化所引起的，需要更新this.selected
+          if (!_.isEqual(newValue, this.selected)) {
+            this.selected = newValue;
+          }
+        }
       },
     },
     methods: {},
