@@ -1,5 +1,6 @@
 <template>
   <div class="phone-main">
+    <!--顶部通栏/S-->
     <div class="phone-main-header">
       <div class="phone-main-header-left">
         <i class="iconfont icon-location phone-main-icon"></i>
@@ -10,6 +11,8 @@
         <a href=""><i class="iconfont icon-mail phone-main-icon"></i></a>
       </div>
     </div>
+    <!--顶部通栏/E-->
+    <!--轮播/S-->
     <mt-swipe :auto="100000">
       <mt-swipe-item>
         <img class="phone-main-img" src="https://m.xyz.cn/p/picture/pic1494503.jpg" alt="图片">
@@ -18,9 +21,13 @@
         <img class="phone-main-img" src="https://m.xyz.cn/p/picture/pic1585940.jpg" alt="图片">
       </mt-swipe-item>
     </mt-swipe>
+    <!--轮播/E-->
   </div>
 </template>
 <script type="text/babel">
+  /**
+   * 首页组件
+   */
   import Vue from 'vue';
   import { Swipe, SwipeItem } from 'mint-ui';
 

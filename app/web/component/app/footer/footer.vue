@@ -1,5 +1,6 @@
 <template>
   <div class="footer-content">
+    <!--tabbar/S-->
     <mt-tabbar
       v-model="selected"
       :fixed="true"
@@ -22,6 +23,7 @@
         <span class="tabbar-item-span">我的</span>
       </mt-tab-item>
     </mt-tabbar>
+    <!--tabbar/E-->
   </div>
 </template>
 <script type="text/babel">

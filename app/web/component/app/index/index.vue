@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    <!--tabContainer/S-->
     <mt-tab-container
       v-model="selected"
       :swipeable="false"
@@ -17,9 +18,13 @@
         我的
       </mt-tab-container-item>
     </mt-tab-container>
+    <!--tabContainer/E-->
   </div>
 </template>
 <script type="text/babel">
+  /**
+   * 与底部tabbar所对应的联动card组件
+   */
   import Vue from 'vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash';
