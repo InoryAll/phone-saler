@@ -15,6 +15,7 @@ const actions = {
   TAB_BAR_CHANGE: ({ commit, dispatch, state }, { tabKey }) => {
     if(tabKey) {
       commit(Type.TAB_BAR_CHANGE, { tabKey });
+      return tabKey;
     }
   },
 

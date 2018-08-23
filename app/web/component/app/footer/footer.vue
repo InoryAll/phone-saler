@@ -50,6 +50,11 @@
     computed: {
       ...mapGetters(['tabKey']),
     },
+    preFetch({ state, dispatch, commit }) {
+      return Promise.all([
+        dispatch(Types.TAB_BAR_CHANGE, { tabKey: this.selected })
+      ]);
+    },
     watch: {
       selected: {
         handler(newValue, oldValue) {
