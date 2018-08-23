@@ -5,9 +5,10 @@ import getters from './getters'
 import mutations from './mutations'
 
 const state = {
-  route: {},
+  // route: {},
   articleList: [],
   article: [],
+  tabKey: '首页',
 };
 
 export default {

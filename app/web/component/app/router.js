@@ -26,8 +26,8 @@ const router = new VueRouter({
 });
 
 // 劫持每一个路由，存入vuex中
-router.beforeEach((to, from, next) => {
-  store.commit(Types.ROUTE_CHANGE, { route: to });
-});
+// router.beforeEach((to, from, next) => {
+//   store.commit(Types.ROUTE_CHANGE, { route: to });
+// });
 
 export default router;

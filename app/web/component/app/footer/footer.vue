@@ -30,7 +30,9 @@
    */
   import Vue from 'vue';
   import _ from 'lodash';
+  import { mapGetters } from 'vuex';
   import { Tabbar, TabItem } from 'mint-ui';
+  import * as Types from '../../../store/app/mutation-type';
 
   Vue.component(Tabbar.name, Tabbar);
   Vue.component(TabItem.name, TabItem);
@@ -44,13 +46,21 @@
         selected: '首页',
       };
     },
+    computed: {
+      ...mapGetters(['tabKey']),
+    },
     watch: {
       selected: {
         handler(newValue, oldValue) {
+          if (!_.isEqual(newValue, oldValue)) {
+            console.log(newValue);
+            return Promise.all([
+              this.$store.dispatch(Types.TAB_BAR_CHANGE, { tabKey: newValue })
+            ]);
+          }
         },
       },
     },
-    computed: {},
     methods: {},
   };
 </script>

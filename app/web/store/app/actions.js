@@ -11,8 +11,11 @@ const host = 'http://127.0.0.1:7001';
 
 const actions = {
 
+  // 处理tabbar的key值变化
   TAB_BAR_CHANGE: ({ commit, dispatch, state }, { tabKey }) => {
-
+    if(tabKey) {
+      commit(Type.TAB_BAR_CHANGE, { tabKey });
+    }
   },
 
   // 处理路由变化

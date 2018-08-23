@@ -4,12 +4,15 @@ import {
   SET_ARTICLE_LIST,
   SET_ARTICLE_DETAIL,
   ROUTE_CHANGE,
+  TAB_BAR_CHANGE,
 } from './mutation-type';
 
 const mutations = {
-  [ROUTE_CHANGE] (state, { route }){
-    console.log(route);
-    state.route = route;
+  // [ROUTE_CHANGE] (state, { route }){
+  //   state.route = route;
+  // },
+  [TAB_BAR_CHANGE] (state, { tabKey }) {
+    state.tabKey = tabKey;
   },
   [SET_ARTICLE_LIST] (state, items){
     state.articleList = items;
