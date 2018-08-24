@@ -34,6 +34,9 @@
     <!--推荐商品/S-->
     <RecommendProduct></RecommendProduct>
     <!--推荐商品/E-->
+    <!--返回顶部/S-->
+    <BackToTop :isScroll="isScroll"></BackToTop>
+    <!--返回顶部/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -43,6 +46,7 @@
   import Vue from 'vue';
   import { Swipe, SwipeItem } from 'mint-ui';
   import $ from 'jquery';
+  import BackToTop from '../backToTop/backToTop';
   import ProductGrid from './productGrid/productGrid';
   import NewsArea from './newsArea/newsArea';
   import ProductCard from './productCard/productCard';
@@ -53,6 +57,7 @@
   export default {
     name: 'main-page',
     components: {
+      BackToTop,
       ProductGrid,
       NewsArea,
       ProductCard,
