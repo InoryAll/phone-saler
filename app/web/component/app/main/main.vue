@@ -1,7 +1,7 @@
 <template>
   <div class="phone-main">
     <!--顶部通栏/S-->
-    <div class="phone-main-header">
+    <div class="phone-main-header" v-bind:class="{ scrolled: isScroll }">
       <div class="phone-main-header-left">
         <i class="iconfont icon-location phone-main-icon"></i>
         <span class="phone-main-span">杨庙专营店</span>
@@ -31,6 +31,9 @@
     <!--卡片/S-->
     <ProductCard></ProductCard>
     <!--卡片/E-->
+    <!--推荐商品/S-->
+    <RecommendProduct></RecommendProduct>
+    <!--推荐商品/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -39,9 +42,11 @@
    */
   import Vue from 'vue';
   import { Swipe, SwipeItem } from 'mint-ui';
+  import $ from 'jquery';
   import ProductGrid from './productGrid/productGrid';
   import NewsArea from './newsArea/newsArea';
   import ProductCard from './productCard/productCard';
+  import RecommendProduct from './recommendProduct/recommendProduct';
 
   Vue.component(Swipe.name, Swipe);
   Vue.component(SwipeItem.name, SwipeItem);
@@ -51,20 +56,36 @@
       ProductGrid,
       NewsArea,
       ProductCard,
+      RecommendProduct,
     },
     data() {
-      return {};
+      return {
+        isScroll: false,
+      };
     },
     computed: {},
     watch: {},
     method: {},
+    mounted() {
+      const _this = this;
+      // $('html').animate({ scrollTop: 0 }, 10);
+      $(window).unbind('scroll').bind('scroll', function() {
+        if ($(window).scrollTop() > 0) {
+          _this.isScroll = true;
+        } else {
+          _this.isScroll = false;
+        }
+      });
+    },
   };
 </script>
 <style lang="less">
   .phone-main {
     background: #fff;
     &-header{
-      position: relative;
+      position: fixed;
+      width: 100%;
+      height: 40px;
       top: 0;
       z-index: 999;
       &-left{
@@ -91,7 +112,7 @@
     &-icon{
       color: #fff;
       font-size: 22px;
-      line-height: 24px;
+      line-height: 30px;
       font-weight: 500;
     }
     .phone-main-icon:last-child{
@@ -99,8 +120,15 @@
     }
     &-span{
       color: #fff;
-      line-height: 24px;
-      vertical-align: text-bottom;
+      line-height: 30px;
+      vertical-align: bottom;
+    }
+    .scrolled{
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      .phone-main-icon,.phone-main-span{
+        color: #666;
+      }
     }
   }
 </style>

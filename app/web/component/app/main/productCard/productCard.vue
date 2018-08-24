@@ -37,6 +37,9 @@
   </div>
 </template>
 <script type="text/babel">
+  /**
+   * 产品卡片组件
+   */
   export default {
     name: 'product-card',
     components: {},
@@ -50,6 +53,7 @@
 </script>
 <style lang="less">
   .phone-product-card{
+    border-bottom: 10px solid #f5f5f5;
     .product-card-list{
       .list-item{
         width: 50%;

@@ -27,6 +27,7 @@
     "egg-view-vue-ssr": "^3.0.2",
     "element-ui": "^2.0.8",
     "extend": "~3.0.0",
+    "jquery": "^3.3.1",
     "lodash": "^4.17.4",
     "mint-ui": "^2.2.13",
     "mockjs": "^1.0.1-beta3",
