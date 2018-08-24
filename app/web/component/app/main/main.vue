@@ -25,6 +25,9 @@
     <!--网格/S-->
     <ProductGrid></ProductGrid>
     <!--网格/E-->
+    <!--最近热点信息/S-->
+    <NewsArea></NewsArea>
+    <!--最近热点信息/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -34,6 +37,7 @@
   import Vue from 'vue';
   import { Swipe, SwipeItem } from 'mint-ui';
   import ProductGrid from './productGrid/productGrid';
+  import NewsArea from './newsArea/newsArea';
 
   Vue.component(Swipe.name, Swipe);
   Vue.component(SwipeItem.name, SwipeItem);
@@ -41,6 +45,7 @@
     name: 'main-page',
     components: {
       ProductGrid,
+      NewsArea,
     },
     data() {
       return {};
