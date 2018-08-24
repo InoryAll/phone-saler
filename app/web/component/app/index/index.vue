@@ -83,4 +83,8 @@
   };
 </script>
 <style lang="less">
+  .index{
+    padding-bottom: 60px;
+    background: #f5f5f5;
+  }
 </style>

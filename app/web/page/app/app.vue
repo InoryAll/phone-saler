@@ -20,4 +20,9 @@
     width: 100%;
     min-height: 100%;
   }
+  .clearFix::after{
+    display: table;
+    content: '';
+    clear: both;
+  }
 </style>

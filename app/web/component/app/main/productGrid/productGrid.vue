@@ -58,16 +58,16 @@
       }
     }
     .grid-item:nth-child(1) .grid-item-icon{
-      background-image: url("../../../../../web/asset/images/grid/1.png");
+      background-image: url("../../../../asset/images/grid/grid-1.png");
     }
     .grid-item:nth-child(2) .grid-item-icon {
-      background-image: url("../../../../../web/asset/images/grid/2.png");
+      background-image: url("../../../../asset/images/grid/grid-2.png");
     }
     .grid-item:nth-child(3) .grid-item-icon {
-      background-image: url("../../../../../web/asset/images/grid/3.png");
+      background-image: url("../../../../asset/images/grid/grid-3.png");
     }
     .grid-item:nth-child(4) .grid-item-icon {
-      background-image: url("../../../../../web/asset/images/grid/4.png");
+      background-image: url("../../../../asset/images/grid/grid-4.png");
     }
   }
 </style>

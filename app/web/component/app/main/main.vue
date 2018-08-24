@@ -28,6 +28,9 @@
     <!--最近热点信息/S-->
     <NewsArea></NewsArea>
     <!--最近热点信息/E-->
+    <!--卡片/S-->
+    <ProductCard></ProductCard>
+    <!--卡片/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -38,6 +41,7 @@
   import { Swipe, SwipeItem } from 'mint-ui';
   import ProductGrid from './productGrid/productGrid';
   import NewsArea from './newsArea/newsArea';
+  import ProductCard from './productCard/productCard';
 
   Vue.component(Swipe.name, Swipe);
   Vue.component(SwipeItem.name, SwipeItem);
@@ -46,6 +50,7 @@
     components: {
       ProductGrid,
       NewsArea,
+      ProductCard,
     },
     data() {
       return {};
@@ -57,6 +62,7 @@
 </script>
 <style lang="less">
   .phone-main {
+    background: #fff;
     &-header{
       position: relative;
       top: 0;
