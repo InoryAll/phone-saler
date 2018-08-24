@@ -19,6 +19,9 @@
       </mt-tab-container-item>
     </mt-tab-container>
     <!--tabContainer/E-->
+    <!--baseFooter/S-->
+    <BaseFooter></BaseFooter>
+    <!--baseFooter/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -31,13 +34,17 @@
   import { TabContainer, TabContainerItem } from 'mint-ui';
   import * as Types from '../../../store/app/mutation-type';
   import MainPage from '../main/main';
+  import BaseFooter from '../footer/footer';
 
   Vue.component(TabContainer.name, TabContainer);
   Vue.component(TabContainerItem.name, TabContainerItem);
 
   export default {
     name: 'index',
-    components: { MainPage },
+    components: {
+      MainPage,
+      BaseFooter
+    },
     props: {},
     data() {
       return {
@@ -76,7 +83,4 @@
   };
 </script>
 <style lang="less">
-  .index{
-    min-height: 100%;
-  }
 </style>

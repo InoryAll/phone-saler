@@ -13,7 +13,7 @@
     </div>
     <!--顶部通栏/E-->
     <!--轮播/S-->
-    <mt-swipe :auto="100000">
+    <mt-swipe :auto="100000" class="phone-main-carousel">
       <mt-swipe-item>
         <img class="phone-main-img" src="https://m.xyz.cn/p/picture/pic1494503.jpg" alt="图片">
       </mt-swipe-item>
@@ -22,6 +22,9 @@
       </mt-swipe-item>
     </mt-swipe>
     <!--轮播/E-->
+    <!--网格/S-->
+    <ProductGrid></ProductGrid>
+    <!--网格/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -30,12 +33,15 @@
    */
   import Vue from 'vue';
   import { Swipe, SwipeItem } from 'mint-ui';
+  import ProductGrid from './productGrid/productGrid';
 
   Vue.component(Swipe.name, Swipe);
   Vue.component(SwipeItem.name, SwipeItem);
   export default {
     name: 'main-page',
-    components: {},
+    components: {
+      ProductGrid,
+    },
     data() {
       return {};
     },
@@ -46,7 +52,6 @@
 </script>
 <style lang="less">
   .phone-main {
-    height: 160px;
     &-header{
       position: relative;
       top: 0;
@@ -62,9 +67,15 @@
         right: 6px;
       }
     }
+    &-carousel{
+      height: 160px;
+    }
     &-img{
+      display: block;
       width: 100%;
       height: 100%;
+      text-align: center;
+      line-height: 160px;
     }
     &-icon{
       color: #fff;
