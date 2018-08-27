@@ -17,7 +17,27 @@
       </mt-navbar>
       <mt-tab-container v-model="selected" class="phone-filter-tabs">
         <mt-tab-container-item id="1">
-          11111111111
+          <FilterItem
+            title="热门推荐"
+            :filterArray="[{
+              link: '',
+              url: 'http://localhost:7001/public/img/grid-1.png',
+              detail: '大唐官府',
+            },{
+              link: '',
+              url: 'http://localhost:7001/public/img/grid-2.png',
+              detail: '女儿村',
+            },{
+              link: '',
+              url: 'http://localhost:7001/public/img/grid-3.png',
+              detail: '龙宫',
+            },{
+              link: '',
+              url: 'http://localhost:7001/public/img/grid-4.png',
+              detail: '无底洞',
+            }]"
+          >
+          </FilterItem>
         </mt-tab-container-item>
         <mt-tab-container-item id="2">
           222222222222
@@ -36,6 +56,7 @@
   import Vue from 'vue';
   import { Navbar, TabItem, TabContainer, TabContainerItem } from 'mint-ui';
   import SearchHeader from '../searchHeader/searchHeader';
+  import FilterItem from './filterItem/filterItem';
 
   Vue.component(Navbar.name, Navbar);
   Vue.component(TabItem.name, TabItem);
@@ -45,7 +66,8 @@
   export default {
     name: 'filter-page',
     components: {
-      SearchHeader
+      SearchHeader,
+      FilterItem
     },
     data() {
       return {
