@@ -1,6 +1,6 @@
 <template>
   <div class="phone-recommend-product">
-    <h3 class="recommend-product-h3">- 推荐商品 -</h3>
+    <h3 v-if="hasHeader" class="recommend-product-h3">- 推荐商品 -</h3>
     <ul class="recommend-product-list">
       <li class="list-item">
         <a href="" class="list-link clearfix">
@@ -46,6 +46,12 @@
   export default {
     name: 'recommend-product',
     components: {},
+    props: {
+      hasHeader: {
+        type: Boolean,
+        default: true,
+      },
+    },
     data() {
       return {};
     },

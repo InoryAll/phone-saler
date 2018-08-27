@@ -34,12 +34,15 @@
     <!--推荐商品/S-->
     <RecommendProduct></RecommendProduct>
     <!--推荐商品/E-->
-    <!--返回顶部/S-->
-    <BackToTop :isScroll="isScroll"></BackToTop>
-    <!--返回顶部/E-->
     <!--轮播/S-->
     <Swiper></Swiper>
     <!--轮播/E-->
+    <!--推荐商品/S-->
+    <RecommendProduct :has-header="false"></RecommendProduct>
+    <!--推荐商品/E-->
+    <!--返回顶部/S-->
+    <BackToTop :isScroll="isScroll"></BackToTop>
+    <!--返回顶部/E-->
   </div>
 </template>
 <script type="text/babel">
