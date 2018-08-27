@@ -9,7 +9,7 @@
         <MainPage></MainPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="分类">
-        分类
+        <FilterPage></FilterPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="购物车">
         购物车
@@ -34,6 +34,7 @@
   import { TabContainer, TabContainerItem } from 'mint-ui';
   import * as Types from '../../../store/app/mutation-type';
   import MainPage from '../main/main';
+  import FilterPage from '../filter/filter';
   import BaseFooter from '../footer/footer';
 
   Vue.component(TabContainer.name, TabContainer);
@@ -43,6 +44,7 @@
     name: 'index',
     components: {
       MainPage,
+      FilterPage,
       BaseFooter
     },
     props: {},
