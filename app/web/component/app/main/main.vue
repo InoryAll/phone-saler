@@ -82,8 +82,8 @@
     mounted() {
       const _this = this;
       // $('html').animate({ scrollTop: 0 }, 10);
-      $(window).unbind('scroll').bind('scroll', function() {
-        if ($(window).scrollTop() > 0) {
+      $('.mint-tab-container-item').unbind('scroll').bind('scroll', function() {
+        if ($('.mint-tab-container-item').scrollTop() > 0) {
           _this.isScroll = true;
         } else {
           _this.isScroll = false;

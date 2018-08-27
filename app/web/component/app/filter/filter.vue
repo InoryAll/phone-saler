@@ -3,23 +3,30 @@
     <!--搜索头部/S-->
     <SearchHeader :has-cart="false"></SearchHeader>
     <!--搜索头部/E-->
-    <mt-navbar v-model="selected">
-      <mt-tab-item id="1">选项一</mt-tab-item>
-      <mt-tab-item id="2">选项二</mt-tab-item>
-      <mt-tab-item id="3">选项三</mt-tab-item>
-    </mt-navbar>
-
-    <mt-tab-container v-model="selected">
-      <mt-tab-container-item id="1">
-        11111111111
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-        222222222222
-      </mt-tab-container-item>
-      <mt-tab-container-item id="3">
-        333333333
-      </mt-tab-container-item>
-    </mt-tab-container>
+    <div class="phone-filter-tab-card clearfix">
+      <mt-navbar v-model="selected" class="phone-filter-slider">
+        <mt-tab-item id="1">推荐</mt-tab-item>
+        <mt-tab-item id="2">角色</mt-tab-item>
+        <mt-tab-item id="3">召唤兽</mt-tab-item>
+        <mt-tab-item id="4">武器</mt-tab-item>
+        <mt-tab-item id="5">防具</mt-tab-item>
+        <mt-tab-item id="6">灵饰</mt-tab-item>
+        <mt-tab-item id="7">召唤兽装备</mt-tab-item>
+        <mt-tab-item id="8">其他</mt-tab-item>
+        <mt-tab-item id="9">公示期</mt-tab-item>
+      </mt-navbar>
+      <mt-tab-container v-model="selected" class="phone-filter-tabs">
+        <mt-tab-container-item id="1">
+          11111111111
+        </mt-tab-container-item>
+        <mt-tab-container-item id="2">
+          222222222222
+        </mt-tab-container-item>
+        <mt-tab-container-item id="3">
+          333333333
+        </mt-tab-container-item>
+      </mt-tab-container>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -51,5 +58,43 @@
   };
 </script>
 <style lang="less">
-
+  .phone-filter{
+    height: 100%;
+    padding-top: 46px;
+    &-tab-card{
+      height: 100%;
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+      overflow: hidden;
+    }
+    &-slider{
+      float: left;
+      flex-direction: column;
+      width: 90px;
+      border-right: 1px solid #e5e5e5;
+      padding-bottom: 9999px;
+      margin-bottom: -9999px;
+    }
+    &-tabs{
+      height: 100%;
+    }
+    .mint-tab-item{
+      margin: 15px 0;
+      padding: 2px 0;
+      font-size: 15px;
+    }
+    .mint-tab-item.is-selected{
+      border-left: 3px solid #d76c68;
+      color: #d76c68;
+      border-bottom: none;
+      margin-bottom: 15px;
+      .mint-tab-item-label{
+        color: #d76c68;
+      }
+    }
+    .mint-tab-item-label{
+      font-size: 16px;
+      color: #333;
+    }
+  }
 </style>

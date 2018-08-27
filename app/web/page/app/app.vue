@@ -18,7 +18,11 @@
 <style>
   html,body{
     width: 100%;
-    min-height: 100%;
+    height: 100%;
+    background: #f5f5f5;
+  }
+  #app,.main,#app > div,.page-container,.page-container > div,.page-container > div > div{
+    height: 100%;
   }
   .clearFix::after{
     display: table;

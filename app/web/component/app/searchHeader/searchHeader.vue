@@ -1,12 +1,10 @@
 <template>
   <div class="phone-search clearfix">
     <div class="phone-search-content" :class="{ moreWidth: !hasCart }">
-      <mt-search
-        class="search-detail"
-        v-model="value"
-        placeholder="输入关键字"
-      >
-      </mt-search>
+      <div class="search">
+        <i class="iconfont icon-search"></i>
+        <input type="text" placeholder="请输入关键词" class="search-input">
+      </div>
     </div>
     <div class="phone-search-link">
       <a v-if="hasCart" class="search-link" href=""><i class="iconfont icon-shopping search-icon"></i></a>
@@ -18,10 +16,6 @@
   /**
    * 搜索头部组件
    */
-  import Vue from 'vue';
-  import { Search } from 'mint-ui';
-
-  Vue.component(Search.name, Search);
 
   export default {
     name: 'search-header',
@@ -44,9 +38,34 @@
 </script>
 <style lang="less">
   .phone-search{
+    width: 100%;
+    height: 46px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
     background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    .search{
+      background: #eaeceb;
+      border: 0;
+      border-radius: 6px;
+      padding: 4px 0;
+      .icon-search{
+        font-size: 18px;
+        line-height: 27px;
+        padding-left: 6px;
+        color: #b4b4b4;
+      }
+      &-input{
+        background: #eaeceb;
+        border: none;
+        outline: none;
+        color: #807f80;
+      }
+    }
     &-content{
       width: 80%;
+      padding: 4px 10px;
       float: left;
       .search-detail{
         height: 100%;
@@ -65,24 +84,6 @@
         color: #333;
         line-height: 46px;
       }
-    }
-    .mint-searchbar{
-      background: #eaebeb;
-      padding: 0;
-      margin: 8px 10px;
-      border: 1px solid #eaebeb;
-      border-radius: 6px;
-    }
-    .mint-searchbar-inner,.mint-searchbar-core{
-      background: #eaebeb;
-    }
-    .mint-searchbar-core{
-      font-size: 12px;
-    }
-    .mint-searchbar-cancel{
-      color: #808080;
-      margin-right: 10px;
-      font-size: 12px;
     }
     .moreWidth{
       width: 90%;

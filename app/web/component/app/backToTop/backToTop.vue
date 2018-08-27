@@ -26,7 +26,7 @@
     watch: {},
     methods: {
       handleBackToTop() {
-        $('html').animate({ scrollTop: 0 }, 300);
+        $('.mint-tab-container-item').animate({ scrollTop: 0 }, 300);
       },
     },
   };

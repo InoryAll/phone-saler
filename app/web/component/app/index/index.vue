@@ -86,7 +86,12 @@
 </script>
 <style lang="less">
   .index{
+    height: 100%;
     padding-bottom: 60px;
     background: #f5f5f5;
+    .mint-tab-container,.mint-tab-container-wrap,.mint-tab-container-item{
+      height: 100%;
+      overflow: scroll;
+    }
   }
 </style>
