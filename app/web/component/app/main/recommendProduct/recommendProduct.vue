@@ -65,6 +65,9 @@
       color: #333;
       border-bottom: 1px solid #e5e5e5;
     }
+     &-list{
+       margin: 0;
+     }
    }
    .list-item{
      padding: 14px 12px;

@@ -37,6 +37,9 @@
     <!--返回顶部/S-->
     <BackToTop :isScroll="isScroll"></BackToTop>
     <!--返回顶部/E-->
+    <!--轮播/S-->
+    <Swiper></Swiper>
+    <!--轮播/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -47,6 +50,7 @@
   import { Swipe, SwipeItem } from 'mint-ui';
   import $ from 'jquery';
   import BackToTop from '../backToTop/backToTop';
+  import Swiper from './swiper/swiper';
   import ProductGrid from './productGrid/productGrid';
   import NewsArea from './newsArea/newsArea';
   import ProductCard from './productCard/productCard';
@@ -62,6 +66,7 @@
       NewsArea,
       ProductCard,
       RecommendProduct,
+      Swiper,
     },
     data() {
       return {
