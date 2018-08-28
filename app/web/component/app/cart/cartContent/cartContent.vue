@@ -20,7 +20,7 @@
                 <div class="item-right">
                   <p class="item-right-name">韦陀护法</p>
                   <p class="item-right-detail">
-                    <span class="detail-tool">成长：1.2572</span>
+                    <span class="detail-tool">成长:1.2572</span>
                     <span class="detail-tool">5技能</span>
                   </p>
                 </div>
@@ -44,60 +44,35 @@
           }
         ]">
             <div slot="title" class="cell-title">
-              <p class="cell-title-time">5分钟</p>
+              <p class="cell-title-time">1小时25分钟</p>
               <div class="cell-title-item clearfix">
                 <div class="item-left">
-                  <img class="item-left-img" src="../../../../../web/asset/images/grid/grid-1.png" alt="图片">
+                  <img class="item-left-img" src="../../../../../web/asset/images/grid/grid-2.png" alt="图片">
                 </div>
                 <div class="item-right">
-                  <p class="item-right-name">韦陀护法</p>
+                  <p class="item-right-name">大唐官府</p>
                   <p class="item-right-detail">
-                    <span class="detail-tool">成长：1.2572</span>
-                    <span class="detail-tool">5技能</span>
+                    <span class="detail-tool">人物修炼:36</span>
+                    <span class="detail-tool">宠物修炼:36</span>
                   </p>
                 </div>
               </div>
             </div>
             <div class="cell-right">
               <p class="cell-right-status">等待支付</p>
-              <p class="cell-right-price">￥278.8</p>
-            </div>
-          </mt-cell-swipe>
-        </a>
-      </li>
-      <li class="list-item">
-        <a href="" class="list-link">
-          <mt-cell-swipe
-            :right="[
-          {
-            content: '删除',
-            style: { background: '#d76c68', color: '#fff' },
-            handler: () => this.$messagebox('delete')
-          }
-        ]">
-            <div slot="title" class="cell-title">
-              <p class="cell-title-time">5分钟</p>
-              <div class="cell-title-item clearfix">
-                <div class="item-left">
-                  <img class="item-left-img" src="../../../../../web/asset/images/grid/grid-1.png" alt="图片">
-                </div>
-                <div class="item-right">
-                  <p class="item-right-name">韦陀护法</p>
-                  <p class="item-right-detail">
-                    <span class="detail-tool">成长：1.2572</span>
-                    <span class="detail-tool">5技能</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="cell-right">
-              <p class="cell-right-status">等待支付</p>
-              <p class="cell-right-price">￥278.8</p>
+              <p class="cell-right-price">￥1278.8</p>
             </div>
           </mt-cell-swipe>
         </a>
       </li>
     </ul>
+    <div class="cart-content-computed">
+      <span class="computed-count">商品:2</span>
+      <span class="computed-total">总计:<strong class="computed-total-price">￥580.8</strong></span>
+      <a href="" class="computed-link">
+        结算(2)
+      </a>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -136,6 +111,7 @@
       padding: 20px 10px;
       &-time{
         margin: 0;
+        font-size: 12px;
         color: #808080;
       }
       &-item{
@@ -164,6 +140,7 @@
           padding-left: 10px;
           .detail-tool{
             color: #808080;
+            font-size: 12px;
           }
         }
       }
@@ -184,6 +161,29 @@
     .mint-cell-swipe-button{
       line-height: 136px;
       padding: 0 20px;
+    }
+    .cart-content-computed{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+      .computed-count{
+        display: inline-block;
+        padding: 12px 10px;
+        color: #333;
+      }
+      .computed-total{
+        &-price{
+          color: #d76c68;
+        }
+      }
+      .computed-link{
+        display: block;
+        float: right;
+        background: #d76c68;
+        color: #fff;
+        padding: 12px 30px;
+      }
     }
   }
 </style>
