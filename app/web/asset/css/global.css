@@ -2,3 +2,4 @@
 @import "./bootstrap.css";
 @import "./app.css";
 @import "../font/iconfont.css";
+@import '../../../../node_modules/mint-ui/lib/style.css';
