@@ -41,7 +41,7 @@
     &-header{
       background: #fff;
       border-bottom: 1px solid #e5e5e5;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
     }
     .header-content{
       font-size: 16px;

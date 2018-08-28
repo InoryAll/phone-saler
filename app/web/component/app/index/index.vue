@@ -12,7 +12,7 @@
         <FilterPage></FilterPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="购物车">
-        <CartPage></CartPage>
+        <CartPage v-if="lazyLoad"></CartPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="我的">
         我的
@@ -31,7 +31,7 @@
   import Vue from 'vue';
   import { mapGetters } from 'vuex';
   import _ from 'lodash';
-  import { TabContainer, TabContainerItem } from 'mint-ui';
+  import { TabContainer, TabContainerItem, CellSwipe } from 'mint-ui';
   import * as Types from '../../../store/app/mutation-type';
   import MainPage from '../main/main';
   import FilterPage from '../filter/filter';
@@ -41,9 +41,12 @@
   Vue.component(TabContainer.name, TabContainer);
   Vue.component(TabContainerItem.name, TabContainerItem);
 
+  const LAZY_LOAD_KEY = ['购物车'];
+
   export default {
     name: 'index',
     components: {
+      CellSwipe,
       MainPage,
       FilterPage,
       CartPage,
@@ -53,6 +56,7 @@
     data() {
       return {
         selected: '首页',
+        lazyLoad: false,
       };
     },
     computed: {
@@ -66,6 +70,13 @@
     watch: {
       selected: {
         handler(newValue, oldValue) {
+          if (LAZY_LOAD_KEY.indexOf(newValue) > -1) {
+            // 懒加载，解决无法滑动删除问题（cell swiper问题）
+            const timer = setTimeout(() => {
+              this.lazyLoad = true;
+              clearTimeout(timer);
+            }, 0);
+          }
           // 监听this.selected，同步改变vuex中的tabKey的值
           if (!_.isEqual(newValue, oldValue)) {
             return Promise.all([
@@ -76,6 +87,13 @@
       },
       tabKey: {
         handler(newValue, oldValue) {
+          if (LAZY_LOAD_KEY.indexOf(newValue) > -1) {
+            // 懒加载，解决无法滑动删除问题（cell swiper问题）
+            const timer = setTimeout(() => {
+              this.lazyLoad = true;
+              clearTimeout(timer);
+            }, 0);
+          }
           // 当tabKey状态变化时，如果newValue！==this.selected，则不是组件本身的变化所引起的，需要更新this.selected
           if (!_.isEqual(newValue, this.selected)) {
             this.selected = newValue;

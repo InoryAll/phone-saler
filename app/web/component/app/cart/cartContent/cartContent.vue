@@ -115,6 +115,10 @@
         color: #808080;
       }
       &-item{
+        .list-link{
+          position: relative;
+        }
+        position: relative;
         padding-top: 10px;
       }
       .item-left{
@@ -151,11 +155,13 @@
         padding-top: 20px;
         color: #333;
         line-height: 30px;
+        text-align: right;
       }
       &-price{
         margin: 0;
         color: #d76c68;
         font-weight: bold;
+        text-align: right;
       }
     }
     .mint-cell-swipe-button{

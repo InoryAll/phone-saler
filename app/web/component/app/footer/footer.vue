@@ -17,6 +17,7 @@
       <mt-tab-item class="tabbar-item" id="购物车">
         <i slot="icon" class="iconfont icon-shopping tabbar-item-icon"></i>
         <span class="tabbar-item-span">购物车</span>
+        <mt-badge class="tabbar-badge" size="small" type="error">2</mt-badge>
       </mt-tab-item>
       <mt-tab-item class="tabbar-item" id="我的">
         <i slot="icon" class="iconfont icon-user tabbar-item-icon"></i>
@@ -31,18 +32,19 @@
    * 底部共有组件footer
    * Created by tianrenjie on 2018/8/22
    */
-  import Vue from 'vue';
   import _ from 'lodash';
   import { mapGetters } from 'vuex';
-  import { Tabbar, TabItem } from 'mint-ui';
+  import { Tabbar, TabItem, Badge } from 'mint-ui';
   import * as Types from '../../../store/app/mutation-type';
 
-  Vue.component(Tabbar.name, Tabbar);
-  Vue.component(TabItem.name, TabItem);
 
   export default {
     name: 'base-footer',
-    components: {},
+    components: {
+      Tabbar,
+      TabItem,
+      Badge
+    },
     props: {},
     data() {
       return {
@@ -93,6 +95,7 @@
       background: #fff;
     }
     .tabbar-item{
+      position: relative;
       &-icon{
         color: #333;
         font-weight: bold;
@@ -111,6 +114,11 @@
       .tabbar-item-span{
         color: #d76c68;
       }
+    }
+    .tabbar-badge{
+      position: absolute;
+      top: 4px;
+      right: 16px;
     }
   }
 </style>

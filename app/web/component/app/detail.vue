@@ -1,6 +1,17 @@
 <template>
   <div style="font-size: 24px; text-align: center">
     <ul>
+      <li>
+        <mt-cell-swipe
+                title="标题文字"
+                :right="[
+          {
+            content: 'Delete',
+            style: { background: 'red', color: '#fff' },
+            handler: () => this.$messagebox('delete')
+          }
+        ]"></mt-cell-swipe>
+      </li>
       <li v-for="item in article" class="detail-li">
         <i>{{item._id}}</i>
         <span>{{item.name}}</span>
