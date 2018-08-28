@@ -12,7 +12,7 @@
         <FilterPage></FilterPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="购物车">
-        购物车
+        <CartPage></CartPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="我的">
         我的
@@ -35,6 +35,7 @@
   import * as Types from '../../../store/app/mutation-type';
   import MainPage from '../main/main';
   import FilterPage from '../filter/filter';
+  import CartPage from '../cart/cart';
   import BaseFooter from '../footer/footer';
 
   Vue.component(TabContainer.name, TabContainer);
@@ -45,6 +46,7 @@
     components: {
       MainPage,
       FilterPage,
+      CartPage,
       BaseFooter
     },
     props: {},
