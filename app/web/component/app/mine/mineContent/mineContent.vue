@@ -87,6 +87,9 @@
         des: '手机服务',
       }]"
     ></MainContentCard>
+    <div class="phone-mine-content-logout">
+      <a href="" class="phone-mine-content-logout-link">退出登录</a>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -222,6 +225,18 @@
             line-height: 30px;
           }
         }
+      }
+    }
+    &-logout{
+      padding: 10px 0;
+      background: #fff;
+      border-top: 6px solid #f5f5f5;
+      border-bottom: 6px solid #f5f5f5;
+      &-link{
+        display: block;
+        text-align: center;
+        color: #d76c68;
+        font-size: 15px;
       }
     }
   }
