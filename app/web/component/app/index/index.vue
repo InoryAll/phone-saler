@@ -15,7 +15,7 @@
         <CartPage v-if="lazyLoad"></CartPage>
       </mt-tab-container-item>
       <mt-tab-container-item id="我的">
-        我的
+        <MinePage></MinePage>
       </mt-tab-container-item>
     </mt-tab-container>
     <!--tabContainer/E-->
@@ -36,6 +36,7 @@
   import MainPage from '../main/main';
   import FilterPage from '../filter/filter';
   import CartPage from '../cart/cart';
+  import MinePage from '../mine/mine';
   import BaseFooter from '../footer/footer';
 
   Vue.component(TabContainer.name, TabContainer);
@@ -50,6 +51,7 @@
       MainPage,
       FilterPage,
       CartPage,
+      MinePage,
       BaseFooter
     },
     props: {},
