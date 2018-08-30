@@ -55,6 +55,38 @@
         </li>
       </ul>
     </div>
+    <MainContentCard
+      title="我的交易"
+      :mineCardArray="[{
+        link: '',
+        icon: 'icon-detail',
+        des: '全部订单',
+      }, {
+        link: '',
+        icon: 'icon-YUAN',
+        des: '我的还价',
+      }, {
+        link: '',
+        icon: 'icon-user',
+        des: '指定我',
+      }, {
+        link: '',
+        icon: 'icon-shopping',
+        des: '我的出售',
+      }]"
+    ></MainContentCard>
+    <MainContentCard
+      title="我的交易"
+      :mineCardArray="[{
+        link: '',
+        icon: 'icon-search',
+        des: '精灵问答',
+      }, {
+        link: '',
+        icon: 'icon-appstore',
+        des: '手机服务',
+      }]"
+    ></MainContentCard>
   </div>
 </template>
 <script type="text/babel">
@@ -62,11 +94,13 @@
    * 我的内容组件
    */
   import { Cell } from 'mint-ui';
+  import MainContentCard from './mineContentCard/mineContentCard';
 
   export default {
     name: 'mine-content',
     components: {
-      Cell
+      Cell,
+      MainContentCard
     },
     data() {
       return {};
