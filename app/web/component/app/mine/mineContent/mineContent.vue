@@ -23,6 +23,38 @@
         <span class="right-span"><a class="right-span-link" href="">买点卡</a></span>
       </div>
     </div>
+    <div class="phone-mine-content-function">
+      <ul class="phone-mine-content-function-list clearfix">
+        <li class="list-item">
+          <a href="" class="list-link">
+            <h3 class="list-item-h3">0</h3>
+            <span class="list-item-span">收藏</span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="" class="list-link">
+            <h3 class="list-item-h3">20</h3>
+            <span class="list-item-span">足迹</span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="" class="list-link">
+            <div class="list-item-box">
+              <i class="iconfont icon-setting list-item-icon"></i>
+            </div>
+            <span class="list-item-span">订阅</span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="" class="list-link">
+            <div class="list-item-box">
+              <i class="iconfont icon-detail list-item-icon"></i>
+            </div>
+            <span class="list-item-span">排行榜</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -120,6 +152,41 @@
         }
         .right-span + .right-span{
           border-left: 1px solid #e5e5e5;
+        }
+      }
+    }
+    &-function{
+      padding: 20px 0;
+      background: #fff;
+      border-top: 6px solid #f5f5f5;
+      border-bottom: 6px solid #f5f5f5;
+      &-list{
+        margin: 0;
+        padding: 0;
+      }
+      .list-item{
+        float: left;
+        width: 25%;
+        .list-link{
+          display: block;
+          text-align: center;
+        }
+        &-h3{
+          font-size: 20px;
+          color: #333;
+          margin: 0;
+          line-height: 30px;
+        }
+        &-span{
+          color: #999;
+          font-size: 12px;
+        }
+        &-box{
+          .list-item-icon{
+            color: #666;
+            font-size: 20px;
+            line-height: 30px;
+          }
         }
       }
     }
