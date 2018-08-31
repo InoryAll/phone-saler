@@ -1,7 +1,7 @@
 <template>
   <div v-if="isScroll" class="phone-backToTop">
     <a href="javascript:;" class="back-to-top-btn" @click="handleBackToTop">
-      ↑
+      <i class="iconfont icon-up back-to-top-icon"></i>
     </a>
   </div>
 </template>
@@ -52,6 +52,11 @@
       border: 1px solid #d9d9d9;
       background: rgba(255,255,255,.8);
       box-shadow: 0 3px 3px rgba(0,0,0,.15);
+    }
+    .back-to-top-icon{
+      line-height: 50px;
+      font-size: 20px;
+      color: #999;
     }
   }
 </style>
