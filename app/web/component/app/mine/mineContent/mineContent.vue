@@ -3,12 +3,13 @@
     <mt-cell title="标题" :is-link="true">
       <div class="phone-mine-content-user clearfix" slot="title">
         <div class="user-box">
-          <img src="../../../../../web/asset/images/card/card-1.png" alt="图片" class="user-box-img">
+          <img src="../../../../../web/asset/images/unlogin.png" alt="图片" class="user-box-img">
         </div>
         <div class="user-detail">
-          <p class="user-detail-name">小瓜°</p>
-          <p class="user-detail-phone">15861368488</p>
-          <p class="user-detail-email">110873204@qq.com</p>
+          <!--<p class="user-detail-name">小瓜°</p>-->
+          <!--<p class="user-detail-phone">15861368488</p>-->
+          <!--<p class="user-detail-email">110873204@qq.com</p>-->
+          <p class="user-detail-login">您还没有登录，请登录</p>
         </div>
       </div>
     </mt-cell>
@@ -87,9 +88,13 @@
         des: '手机服务',
       }]"
     ></MainContentCard>
+    <div class="phone-mine-content-login">
+      <a class="phone-mine-content-login-link"  @click="handleLoginClick">立即登录</a>
+    </div>
     <div class="phone-mine-content-logout">
       <a href="" class="phone-mine-content-logout-link">退出登录</a>
     </div>
+    <LoginPage :loginVisible="loginVisible" :onLoginVisibleChange="onLoginVisibleChange"></LoginPage>
   </div>
 </template>
 <script type="text/babel">
@@ -98,19 +103,30 @@
    */
   import { Cell } from 'mint-ui';
   import MainContentCard from './mineContentCard/mineContentCard';
+  import LoginPage from '../../login/login';
 
   export default {
     name: 'mine-content',
     components: {
       Cell,
-      MainContentCard
+      MainContentCard,
+      LoginPage
     },
     data() {
-      return {};
+      return {
+        loginVisible: false,
+      };
     },
     computed: {},
     watch: {},
-    methods: {},
+    methods: {
+      handleLoginClick() {
+        this.loginVisible = true;
+      },
+      onLoginVisibleChange(val) {
+        this.loginVisible = val;
+      },
+    },
   };
 </script>
 <style lang="less">
@@ -147,6 +163,13 @@
           color: #4a4a4a;
           line-height: 20px;
           font-size: 14px;
+        }
+        &-login{
+          margin: 0;
+          color: #333;
+          font-size: 16px;
+          line-height: 80px;
+          padding-left: 10px;
         }
       }
     }
@@ -237,6 +260,25 @@
         text-align: center;
         color: #d76c68;
         font-size: 15px;
+      }
+    }
+    &-login{
+      padding: 10px 12px;
+      background: #fff;
+      border-top: 6px solid #f5f5f5;
+      border-bottom: 6px solid #f5f5f5;
+      &-link{
+        display: block;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 15px;
+        background: #d76c68;
+        border-radius: 20px;
+      }
+      &-link:active{
+        color: #fff;
       }
     }
   }
