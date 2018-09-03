@@ -1,7 +1,7 @@
 <template>
   <div class="phone-filter">
     <!--搜索头部/S-->
-    <SearchHeader :has-cart="false"></SearchHeader>
+    <SearchHeader :hasCart="false" :hasBack="false"></SearchHeader>
     <!--搜索头部/E-->
     <div class="phone-filter-tab-card clearfix">
       <mt-navbar v-model="selected" class="phone-filter-slider">

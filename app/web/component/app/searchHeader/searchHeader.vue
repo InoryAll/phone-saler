@@ -1,6 +1,9 @@
 <template>
   <div class="phone-search clearfix">
-    <div class="phone-search-content" :class="{ moreWidth: !hasCart }">
+    <div class="phone-search-back">
+      <a v-if="hasBack" class="search-back-link" href=""><i class="iconfont icon-left search-back-icon"></i></a>
+    </div>
+    <div class="phone-search-content" :class="{ moreWidth: !hasCart && !hasBack}">
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="请输入关键词" class="search-input">
@@ -24,6 +27,10 @@
       hasCart: {
         type: Boolean,
         default: true,
+      },
+      hasBack: {
+        type: Boolean,
+        default: false,
       },
     },
     data() {
@@ -87,6 +94,17 @@
     }
     .moreWidth{
       width: 90%;
+    }
+    &-back{
+      .search-back-link{
+        float: left;
+        padding-left: 4px;
+      }
+      .search-back-icon{
+        font-size: 20px;
+        color: #666;
+        line-height: 46px;
+      }
     }
   }
 </style>
