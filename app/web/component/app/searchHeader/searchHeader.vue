@@ -3,7 +3,7 @@
     <div class="phone-search-back">
       <a v-if="hasBack" class="search-back-link" href=""><i class="iconfont icon-left search-back-icon"></i></a>
     </div>
-    <div class="phone-search-content" :class="{ moreWidth: !hasCart && !hasBack}">
+    <div class="phone-search-content" :class="{ moreWidth: !hasCart && !hasBack, lessWidth: hasCart && hasBack}">
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="请输入关键词" class="search-input">
@@ -94,6 +94,9 @@
     }
     .moreWidth{
       width: 90%;
+    }
+    .lessWidth{
+      width: 74%;
     }
     &-back{
       .search-back-link{

@@ -1,11 +1,21 @@
-<template></template>
+<template>
+  <div class="item-list-page">
+    <div class="item-list-page-header">
+      <SearchHeader :hasBack="true" :hasCart="true"></SearchHeader>
+    </div>
+  </div>
+</template>
 <script type="text/babel">
   /**
    * 商品列表组件
    */
+  import SearchHeader from '../searchHeader/searchHeader';
+
   export default {
     name: 'item-list',
-    components: {},
+    components: {
+      SearchHeader
+    },
     data() {
       return {};
     },

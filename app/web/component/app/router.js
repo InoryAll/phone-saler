@@ -5,6 +5,7 @@ import * as Types from '../../store/app/mutation-type';
 
 import Index from './index/index';
 import ListView from './list';
+import ItemList from './itemList/itemList';
 
 Vue.use(VueRouter);
 
@@ -17,8 +18,8 @@ const router = new VueRouter({
       component: Index
     },
     {
-      path: '/list',
-      component: ListView
+      path: '/itemList',
+      component: ItemList
     },
     {
       path: '/detail/:id',
