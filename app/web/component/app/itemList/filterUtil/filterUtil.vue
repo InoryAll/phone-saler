@@ -2,17 +2,49 @@
   <div class="item-list-page-filter">
     <ul class="list-page-filter-list clearfix">
       <li class="list-item">
-        <a @click="handleFilterClick(SORT_CONFIG.COMPREHENSIVE_SORT)" class="list-link">综合排序</a>
+        <a
+          @click="handleFilterClick(SORT_CONFIG.COMPREHENSIVE_SORT)"
+          class="list-link"
+          :class="{ active: sortField === SORT_CONFIG.COMPREHENSIVE_SORT }"
+        >
+          综合排序
+        </a>
       </li>
       <li class="list-item">
-        <a @click="handleFilterClick(SORT_CONFIG.NEWIEST)" class="list-link">最新</a>
+        <a
+          @click="handleFilterClick(SORT_CONFIG.NEWIEST)"
+          class="list-link"
+          :class="{ active: sortField === SORT_CONFIG.NEWIEST }"
+        >
+          最新
+        </a>
       </li>
       <li class="list-item">
-        <a @click="handleFilterClick(SORT_CONFIG.COLLECTION)" class="list-link">收藏</a>
+        <a
+          @click="handleFilterClick(SORT_CONFIG.COLLECTION)"
+          class="list-link"
+          :class="{ active: sortField === SORT_CONFIG.COLLECTION }"
+        >
+          收藏
+        </a>
       </li>
       <li class="list-item">
-        <a @click="handleFilterClick(SORT_CONFIG.PRICE)" class="list-link">
-          价格<i class="iconfont icon-down list-icon-price"></i>
+        <a
+          @click="handleFilterClick(SORT_CONFIG.PRICE)"
+          class="list-link list-link-price"
+          :class="{
+          active: sortField === SORT_CONFIG.PRICE,
+          }"
+        >
+          价格
+          <i
+            class="iconfont icon-down list-icon-price"
+            :class="{
+              up: sortField === SORT_CONFIG.PRICE && sortType === 'ASC',
+              down: sortField === SORT_CONFIG.PRICE && sortType === 'DESC',
+              reset: sortField!== '' && sortField !== SORT_CONFIG.PRICE,
+            }"
+          ></i>
         </a>
       </li>
       <li class="list-item">
@@ -35,8 +67,8 @@
     data() {
       return {
         sortField: '',
-        // 默认正序排列
-        sortType: 'ASC',
+        // 默认倒序排列
+        sortType: 'DESC',
         SORT_CONFIG,
       };
     },
@@ -58,6 +90,11 @@
             break;
           case SORT_CONFIG.PRICE:
             this.sortField = SORT_CONFIG.PRICE;
+            if (this.sortType === 'ASC') {
+              this.sortType = 'DESC';
+            } else {
+              this.sortType = 'ASC';
+            }
             break;
           default:
             break;
@@ -67,6 +104,31 @@
   };
 </script>
 <style lang="less">
+  @keyframes rotateToUp {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(90deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+  @keyframes rotateToDown {
+    0% {
+      transform: rotate(180deg);
+    }
+    50% {
+      transform: rotate(90deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  a, a:focus, a:active{
+    text-decoration: none;
+  }
   .item-list-page-filter{
     padding-top: 46px;
     border-bottom: 1px solid #e5e5e5;
@@ -87,10 +149,34 @@
         font-size: 15px;
         color: #333;
       }
+      .list-link-price{
+        position: relative;
+        padding-right: 16px;
+      }
+      .list-link.active{
+        color: #d76b68;
+        text-decoration: none;
+      }
+      .up{
+        color: #d76b68 !important;
+        animation: rotateToUp 0.3s linear 0s 1 normal;
+        animation-fill-mode: both;
+      }
+      .down{
+        color: #d76b68 !important;
+        animation: rotateToDown 0.3s linear 0s 1 normal;
+        animation-fill-mode: both;
+      }
+      .reset{
+        animation: rotateToDown 0.3s linear 0s 1 normal;
+        animation-fill-mode: both;
+      }
       .list-icon-price{
+        position: absolute;
         font-size: 12px;
-        padding-left: 4px;
+        margin-left: 4px;
         color: #666;
+        top: 3px;
       }
       .list-icon-filter{
         font-size: 14px;
