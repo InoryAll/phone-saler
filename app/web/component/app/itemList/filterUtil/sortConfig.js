@@ -4,6 +4,7 @@ const SORT_CONFIG = {
   NEWIEST: 'NEWIEST',
   COLLECTION: 'COLLECTION',
   PRICE: 'PRICE',
+  DETAIL: 'DETAIL',
 };
 
 module.exports = SORT_CONFIG;

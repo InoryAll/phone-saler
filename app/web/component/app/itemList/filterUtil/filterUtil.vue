@@ -42,17 +42,27 @@
             :class="{
               up: sortField === SORT_CONFIG.PRICE && sortType === 'ASC',
               down: sortField === SORT_CONFIG.PRICE && sortType === 'DESC',
-              reset: sortField!== '' && sortField !== SORT_CONFIG.PRICE,
+              reset: sortType !== '' && sortField !== SORT_CONFIG.PRICE,
             }"
           ></i>
         </a>
       </li>
       <li class="list-item">
-        <a class="list-link">
+        <a
+          class="list-link"
+          @click="handleFilterClick(SORT_CONFIG.DETAIL)"
+          :class="{
+          active: sortField === SORT_CONFIG.DETAIL,
+          }"
+        >
           筛选<i class="iconfont icon-filter list-icon-filter"></i>
         </a>
       </li>
     </ul>
+    <FilterDataPopUp
+      :filterVisible="filterVisible"
+      :changePopUpVisible="changePopUpVisible"
+    ></FilterDataPopUp>
   </div>
 </template>
 <script type="text/babel">
@@ -60,16 +70,20 @@
    * 商品列表过滤器组件
    */
   import SORT_CONFIG from './sortConfig';
+  import FilterDataPopUp from './filterDetailPopUp/filterDetailPopUp';
 
   export default {
     name: 'filter-util',
-    components: {},
+    components: {
+      FilterDataPopUp,
+    },
     data() {
       return {
         sortField: '',
-        // 默认倒序排列
-        sortType: 'DESC',
+        // 默认正序排列
+        sortType: '',
         SORT_CONFIG,
+        filterVisible: false,
       };
     },
     computed: {},
@@ -96,9 +110,16 @@
               this.sortType = 'ASC';
             }
             break;
+          case SORT_CONFIG.DETAIL:
+            this.sortField = SORT_CONFIG.DETAIL;
+            this.filterVisible = true;
+            break;
           default:
             break;
         }
+      },
+      changePopUpVisible(val) {
+        this.filterVisible = val;
       }
     },
   };
@@ -156,6 +177,9 @@
       .list-link.active{
         color: #d76b68;
         text-decoration: none;
+        .list-icon-filter{
+          color: #d76b68;
+        }
       }
       .up{
         color: #d76b68 !important;
