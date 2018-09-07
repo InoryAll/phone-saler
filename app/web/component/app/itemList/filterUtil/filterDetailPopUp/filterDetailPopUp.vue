@@ -12,7 +12,7 @@
         <span class="filter-util-pop-up-header-span">筛选</span>
       </div>
       <div class="form-content">
-        <form action="">
+        <form id="filter-form" action="">
           <ul class="filter-util-pop-up-list">
             <li class="list-item" :class="{ active: priceCollapse === true, negative: priceCollapse === false }">
               <a class="list-item-header clearfix" @click="handleFilterClick(FILTER_CONFIG.PRICE)">
@@ -35,7 +35,75 @@
                 </mt-radio>
               </div>
             </li>
+            <li class="list-item" :class="{ active: screenCollapse === true, negative: screenCollapse === false }">
+              <a class="list-item-header clearfix" @click="handleFilterClick(FILTER_CONFIG.SCREEN)">
+                <div class="list-item-header-left">
+                  屏幕尺寸（英寸）
+                </div>
+                <div class="list-item-header-right">
+                  <i class="iconfont icon-up"></i>
+                </div>
+              </a>
+              <div class="form-item">
+                <mt-field class="form-item-input-group" label="" placeholder="最小" type="number" :attr="{ name: 'smallScreen' }"></mt-field>
+                <span class="form-item-input-group-span">-</span>
+                <mt-field class="form-item-input-group" label="" placeholder="最大" type="number" :attr="{ name: 'bigScreen' }"></mt-field>
+              </div>
+              <div class="form-item">
+                <mt-radio
+                  class="form-item-radio-group"
+                  :options="['0-4.0', '4.0-5.0', '5.0-6.0', '6.0+']">
+                </mt-radio>
+              </div>
+            </li>
+            <li class="list-item" :class="{ active: brandCollapse === true, negative: brandCollapse === false }">
+              <a class="list-item-header clearfix" @click="handleFilterClick(FILTER_CONFIG.BRAND)">
+                <div class="list-item-header-left">
+                  品牌
+                </div>
+                <div class="list-item-header-right">
+                  <i class="iconfont icon-up"></i>
+                </div>
+              </a>
+              <div class="form-item">
+                <mt-radio
+                  class="form-item-radio-group"
+                  :options="this.options = [{
+                      label: '小米',
+                      value: 'xiaomi',
+                    }, {
+                      label: '华为',
+                      value: 'huawei'
+                    }, {
+                      label: '苹果',
+                      value: 'iphone'
+                    }, {
+                      label: 'Vivo',
+                      value: 'vivo'
+                    }, {
+                      label: 'Oppo',
+                      value: 'oppo'
+                    }, {
+                      label: '三星',
+                      value: 'samsung',
+                    }, {
+                      label: '诺基亚',
+                      value: 'nokia',
+                    }, {
+                      label: '中兴',
+                      value: 'zhongxing',
+                    }, {
+                      label: '其他',
+                      value: 'other',
+                    }]">
+                </mt-radio>
+              </div>
+            </li>
           </ul>
+          <div class="form-actions clearfix">
+            <input type="reset" value="清除选项" class="form-actions-reset">
+            <input type="submit" value="确定" class="form-actions-submit">
+          </div>
         </form>
       </div>
     </div>
@@ -65,6 +133,8 @@
         FILTER_CONFIG,
         visible: this.filterVisible,
         priceCollapse: '',
+        screenCollapse: '',
+        brandCollapse: '',
       };
     },
     computed: {},
@@ -94,6 +164,20 @@
               this.priceCollapse = false;
             } else {
               this.priceCollapse = !this.priceCollapse;
+            }
+            break;
+          case FILTER_CONFIG.SCREEN:
+            if (this.screenCollapse === '') {
+              this.screenCollapse = false;
+            } else {
+              this.screenCollapse = !this.screenCollapse;
+            }
+            break;
+          case FILTER_CONFIG.BRAND:
+            if (this.brandCollapse === '') {
+              this.brandCollapse = false;
+            } else {
+              this.brandCollapse = !this.brandCollapse;
             }
             break;
           default:
@@ -130,11 +214,21 @@
   .phone-filter-util-pop-up{
     width: 90%;
     height: 100%;
+    overflow-y: scroll;
     &-content{
+      padding-bottom: 60px;
+      position: relative;
       .filter-util-pop-up-header{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 39px;
         line-height: 36px;
         border-bottom: 2px solid #f5f5f5;
         text-align: center;
+        /*transform: translateZ(99999px);*/
+        background: #fff;
+        /*z-index: 99999;*/
         &-left{
           float: left;
           padding-left: 10px;
@@ -152,6 +246,8 @@
         }
       }
       .filter-util-pop-up-list{
+        padding-top: 40px;
+        margin: 0;
         .list-item{
           display: block;
           padding: 0 10px;
@@ -295,6 +391,32 @@
     }
     .list-item + .list-item{
       border-top: 1px solid #e5e5e5;
+    }
+    .form-actions{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid #e5e5e5;
+      transform: translateZ(9999px);
+      &-reset{
+        float: left;
+        width: 30%;
+        outline: none;
+        color: #333;
+        padding: 16px 0;
+        background: #fff;
+        border: none;
+        font-size: 16px;
+      }
+      &-submit{
+        width: 70%;
+        background: #d76c68;
+        outline: none;
+        color: #fff;
+        padding: 16px 0;
+        border: none;
+        font-size: 16px;
+      }
     }
   }
 </style>
