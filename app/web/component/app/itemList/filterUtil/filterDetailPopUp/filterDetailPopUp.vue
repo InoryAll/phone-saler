@@ -11,31 +11,33 @@
         </a>
         <span class="filter-util-pop-up-header-span">筛选</span>
       </div>
-      <form action="">
-        <ul class="filter-util-pop-up-list">
-          <li class="list-item">
-            <div class="list-item-header clearfix">
-              <div class="list-item-header-left">
-                价格（元）
+      <div class="form-content">
+        <form action="">
+          <ul class="filter-util-pop-up-list">
+            <li class="list-item" :class="{ active: priceCollapse === true, negative: priceCollapse === false }">
+              <a class="list-item-header clearfix" @click="handleFilterClick(FILTER_CONFIG.PRICE)">
+                <div class="list-item-header-left">
+                  价格（元）
+                </div>
+                <div class="list-item-header-right">
+                  <i class="iconfont icon-up"></i>
+                </div>
+              </a>
+              <div class="form-item">
+                <mt-field class="form-item-input-group" label="" placeholder="最低" type="number" :attr="{ name: 'lowPrice' }"></mt-field>
+                <span class="form-item-input-group-span">-</span>
+                <mt-field class="form-item-input-group" label="" placeholder="最高" type="number" :attr="{ name: 'highPrice' }"></mt-field>
               </div>
-              <div class="list-item-header-right">
-                <i class="iconfont icon-up"></i>
+              <div class="form-item">
+                <mt-radio
+                  class="form-item-radio-group"
+                  :options="['0-999', '1000-1999', '2000-2999', '3000-3999', '4000-4999', '5000+']">
+                </mt-radio>
               </div>
-            </div>
-            <div class="form-item">
-              <mt-field class="form-item-input-group" label="" placeholder="最低" type="number" :attr="{ name: 'lowPrice' }"></mt-field>
-              <span class="form-item-input-group-span">-</span>
-              <mt-field class="form-item-input-group" label="" placeholder="最高" type="number" :attr="{ name: 'highPrice' }"></mt-field>
-            </div>
-            <div class="form-item">
-              <mt-radio
-                class="form-item-radio-group"
-                :options="['0-999', '1000-1999', '2000-2999', '3000-3999', '4000-4999', '5000+']">
-              </mt-radio>
-            </div>
-          </li>
-        </ul>
-      </form>
+            </li>
+          </ul>
+        </form>
+      </div>
     </div>
   </mt-popup>
 </template>
@@ -45,6 +47,7 @@
    */
   import { Popup, Field, Radio } from 'mint-ui';
   import _ from 'lodash';
+  import FILTER_CONFIG from './filterConfig';
 
   export default {
     name: 'filter-util-pop-up',
@@ -59,7 +62,9 @@
     },
     data() {
       return {
+        FILTER_CONFIG,
         visible: this.filterVisible,
+        priceCollapse: '',
       };
     },
     computed: {},
@@ -81,10 +86,47 @@
       handlePopUpClose() {
         this.visible = false;
       },
+      handleFilterClick(type) {
+        const FILTER_TYPE = type;
+        switch (FILTER_TYPE) {
+          case FILTER_CONFIG.PRICE:
+            if (this.priceCollapse === '') {
+              this.priceCollapse = false;
+            } else {
+              this.priceCollapse = !this.priceCollapse;
+            }
+            break;
+          default:
+            break;
+        }
+      }
     },
   };
 </script>
 <style lang="less">
+  @keyframes slideToUp{
+    0%{
+      height: 200px;
+    }
+    50%{
+      height: 120px;
+    }
+    100%{
+      height: 40px;
+    }
+  }
+  @keyframes slideToDown {
+    0%{
+      height: 40px;
+    }
+    50%{
+      height: 120px;
+    }
+    100%{
+      height: 200px;
+    }
+  }
+
   .phone-filter-util-pop-up{
     width: 90%;
     height: 100%;
@@ -111,9 +153,14 @@
       }
       .filter-util-pop-up-list{
         .list-item{
+          display: block;
           padding: 0 10px;
+          overflow-y: hidden;
+          height: 200px;
           &-header{
+            display: block;
             padding: 10px 0;
+            position: relative;
             &-left{
               float: left;
               font-weight: bold;
@@ -121,8 +168,13 @@
             }
             &-right{
               float: right;
+              min-width: 16px;
+              position: relative;
               color: #666;
               font-weight: bold;
+              .iconfont{
+                position: absolute;
+              }
             }
           }
           .form-item{
@@ -213,10 +265,36 @@
                 transform: none;
                 background: red;
               }
+              .mint-radio-input:checked{
+                color: #d76c68;
+              }
             }
           }
         }
       }
+    }
+    .active{
+      .iconfont{
+        animation: rotateToDown 0.3s linear 0s 1 normal;
+        animation-fill-mode: both;
+      }
+    }
+    .list-item.active{
+      animation: slideToDown 0.3s linear 0s 1 normal;
+      animation-fill-mode: both;
+    }
+    .negative{
+      .iconfont{
+        animation: rotateToUp 0.3s linear 0s 1 normal;
+        animation-fill-mode: both;
+      }
+    }
+    .list-item.negative{
+      animation: slideToUp 0.3s linear 0s 1 normal;
+      animation-fill-mode: both;
+    }
+    .list-item + .list-item{
+      border-top: 1px solid #e5e5e5;
     }
   }
 </style>
