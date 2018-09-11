@@ -57,6 +57,10 @@
   </div>
 </template>
 <script type="text/babel">
+  /**
+   * 商品单元组件
+   */
+
   export default {
     name: 'item-unit',
     components: {},
