@@ -6,6 +6,9 @@
     <!--产品列表页筛选器/S-->
     <FilterUtil></FilterUtil>
     <!--产品列表页筛选器/E-->
+    <!--产品列表页/S-->
+    <ItemUnit></ItemUnit>
+    <!--产品列表页/E-->
   </div>
 </template>
 <script type="text/babel">
@@ -14,12 +17,14 @@
    */
   import SearchHeader from '../searchHeader/searchHeader';
   import FilterUtil from './filterUtil/filterUtil';
+  import ItemUnit from './itemUnit/itemUnit';
 
   export default {
     name: 'item-list',
     components: {
       SearchHeader,
-      FilterUtil
+      FilterUtil,
+      ItemUnit
     },
     data() {
       return {};
@@ -29,4 +34,9 @@
     methods: {},
   };
 </script>
-<style lang="less"></style>
+<style lang="less">
+  .item-list-page{
+    height: 100%;
+    overflow-y: scroll;
+  }
+</style>
