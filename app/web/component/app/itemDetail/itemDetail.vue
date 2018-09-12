@@ -34,7 +34,7 @@
       <mt-cell title="服务" is-link @click.native="handleServiceClick">
         <span>7天无理由·公益宝贝</span>
       </mt-cell>
-      <mt-cell title="规格" is-link>
+      <mt-cell title="规格" is-link @click.native="handleSettingClick">
         <span>请选择机身颜色 套餐类型 存储容量</span>
       </mt-cell>
       <mt-cell title="参数" is-link @click.native="handleParamsClick">
@@ -98,6 +98,23 @@
       class="detail-setting"
       v-model="settingVisible"
       position="bottom">
+      <div class="detail-setting-content">
+        <div class="setting-content-product clearfix">
+          <div class="product-left">
+            <img src="../../../../web/asset/images/phone.png" alt="图片" class="product-left-img">
+          </div>
+          <div class="product-right">
+            <p class="product-right-price">￥708-1368</p>
+            <p class="product-right-amount">库存20868件</p>
+            <p class="product-right-tip">请选择 机身颜色 套餐类型 存储容量</p>
+          </div>
+          <div class="product-close">
+            <a class="product-close-link" @click="handleSettingClose">
+              <i class="iconfont icon-close-circle product-close-icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </mt-popup>
     <mt-popup
       class="detail-params"
@@ -201,6 +218,12 @@
       },
       handleParamsFinish() {
         this.paramsVisible = false;
+      },
+      handleSettingClick() {
+        this.settingVisible = true;
+      },
+      handleSettingClose() {
+        this.settingVisible = false;
       },
     },
   };
@@ -456,6 +479,59 @@
           background: -o-linear-gradient(90deg, #ee7f31 0%, #eb5829 100%); /* Opera 11.1 - 12.0 */
           background: -moz-linear-gradient(90deg, #ee7f31 0%, #eb5829 100%); /* Firefox 3.6 - 15 */
           background: linear-gradient(90deg, #ee7f31 0%, #eb5829 100%); /* 标准的语法 */
+        }
+      }
+    }
+    .detail-setting{
+      width: 100%;
+      max-height: 80%;
+      overflow-y: scroll;
+      &-content{
+        padding: 10px;
+        background: #fff;
+      }
+      .setting-content-product{
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        .product-left{
+          float: left;
+          &-img{
+            display: block;
+            width: 100px;
+            height: 100px;
+          }
+        }
+        .product-right{
+          overflow: hidden;
+          position: absolute;
+          bottom: 10px;
+          left: 110px;
+          font-size: 14px;
+          color: #333;
+          &-price{
+            margin: 0;
+            font-size: 16px;
+            color: #ec5e2a;
+          }
+          &-amount{
+            margin: 0;
+          }
+          &-tip{
+            margin: 0;
+          }
+        }
+        .product-close{
+          position: absolute;
+          right: 0;
+          top: 0;
+          &-link{
+            display: block;
+          }
+          &-icon{
+            color: #999;
+            font-size: 20px;
+          }
         }
       }
     }
