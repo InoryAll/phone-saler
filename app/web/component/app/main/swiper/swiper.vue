@@ -2,7 +2,7 @@
   <div class="phone-main-swiper">
     <mt-swipe :auto="100000" class="phone-main-carousel">
       <mt-swipe-item>
-        <img class="phone-main-img" src="https://m.xyz.cn/p/picture/pic1585940.jpg" alt="图片">
+        <img class="phone-main-img" src="../../../../../web/asset/images/phone.png" alt="图片">
       </mt-swipe-item>
       <mt-swipe-item>
         <img class="phone-main-img" src="https://m.xyz.cn/p/picture/pic1494503.jpg" alt="图片">
@@ -34,6 +34,13 @@
   .phone-main-swiper{
     .phone-main-carousel{
       height: 120px;
+    }
+    .phone-main-img{
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 160px;
     }
   }
 </style>
