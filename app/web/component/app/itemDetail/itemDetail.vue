@@ -47,10 +47,50 @@
       position="bottom">
       <div class="detail-service-content">
         <div class="detail-service-content-base">
-          <h3>基础服务</h3>
+          <h3 class="content-base-title">基础服务</h3>
+          <ul class="content-base-list">
+            <li class="list-item clearfix">
+              <div class="list-item-left">
+                <i class="iconfont icon-check-circle list-item-icon"></i>
+              </div>
+              <div class="list-item-right">
+                <p class="article-title">7天无理由</p>
+                <p class="article-detail">满足7天无理由申请托获得前提下，包邮商品需要买家承担退货邮费，非包邮商品需要买家承担发货和退货邮费</p>
+              </div>
+            </li>
+            <li class="list-item clearfix">
+              <div class="list-item-left">
+                <i class="iconfont icon-check-circle list-item-icon"></i>
+              </div>
+              <div class="list-item-right">
+                <p class="article-title">24小时内发货</p>
+              </div>
+            </li>
+          </ul>
         </div>
         <div class="detail-service-content-other">
-          <h3>其他</h3>
+          <h3 class="content-other-title">其他</h3>
+          <ul class="content-other-list">
+            <li class="list-item clearfix">
+              <div class="list-item-left">
+                <i class="iconfont icon-check-circle list-item-icon"></i>
+              </div>
+              <div class="list-item-right">
+                <p class="article-title">支付宝</p>
+              </div>
+            </li>
+            <li class="list-item clearfix">
+              <div class="list-item-left">
+                <i class="iconfont icon-check-circle list-item-icon"></i>
+              </div>
+              <div class="list-item-right">
+                <p class="article-title">微信支付</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="detail-service-content-btn">
+          <a class="content-btn" @click="handleServiceFinish">完成</a>
         </div>
       </div>
     </mt-popup>
@@ -77,6 +117,7 @@
     name: 'item-detail',
     components: {
       Cell,
+      Popup,
       Swiper
     },
     data() {
@@ -91,6 +132,9 @@
     methods: {
       handleServiceClick() {
         this.serviceVisible = true;
+      },
+      handleServiceFinish() {
+        this.serviceVisible = false;
       },
     },
   };
@@ -187,7 +231,91 @@
       width: 100%;
       &-content{
         background: #fff;
-        padding: 20px 10px;
+      }
+      &-content-base{
+        padding: 20px 20px 0 20px;
+        .content-base-title{
+          font-size: 16px;
+          color: #333;
+          font-weight: bold;
+          margin: 0;
+          text-align: center;
+          padding: 10px 0 20px;
+        }
+        .content-base-list{
+          .list-item{
+            padding: 10px 0;
+            &-left{
+              float: left;
+              .list-item-icon{
+                color: #ec5e2c;
+                font-size: 18px;
+                line-height: 20px;
+              }
+            }
+            &-right{
+              padding-left: 30px;
+              .article-title{
+                margin: 0;
+                color: #828282;
+                font-size: 15px;
+              }
+              .article-detail{
+                margin: 0;
+                color: #828282;
+                font-size: 13px;
+                padding: 4px 0;
+              }
+            }
+          }
+        }
+      }
+      &-content-other{
+        padding: 0 20px 0 20px;
+        .content-other-title{
+          font-size: 16px;
+          color: #333;
+          font-weight: bold;
+          margin: 0;
+          text-align: center;
+          padding: 20px 0;
+        }
+        .content-other-list{
+          .list-item{
+            padding: 10px 0;
+            &-left{
+              float: left;
+              .list-item-icon{
+                color: #ec5e2c;
+                font-size: 18px;
+                line-height: 20px;
+              }
+            }
+            &-right{
+              padding-left: 30px;
+              .article-title{
+                margin: 0;
+                color: #828282;
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+      &-content-btn{
+        .content-btn{
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          font-size: 16px;
+          color: #fff;
+          padding: 14px 0;
+          text-align: center;
+          background: -webkit-linear-gradient(90deg, #f09a38 0%, #eb5829 100%); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(90deg, #f09a38 0%, #eb5829 100%); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(90deg, #f09a38 0%, #eb5829 100%); /* Firefox 3.6 - 15 */
+          background: linear-gradient(90deg, #f09a38 0%, #eb5829 100%); /* 标准的语法 */
+        }
       }
     }
   }
