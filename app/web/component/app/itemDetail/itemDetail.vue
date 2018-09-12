@@ -37,7 +37,7 @@
       <mt-cell title="规格" is-link>
         <span>请选择机身颜色 套餐类型 存储容量</span>
       </mt-cell>
-      <mt-cell title="参数" is-link>
+      <mt-cell title="参数" is-link @click.native="handleParamsClick">
         <span>CPU品牌 CPU型号...</span>
       </mt-cell>
     </div>
@@ -103,6 +103,66 @@
       class="detail-params"
       v-model="paramsVisible"
       position="bottom">
+      <div class="detail-params-content">
+        <h3 class="params-content-title">产品参数</h3>
+        <ul class="params-content-list">
+          <li class="list-item">
+            <label class="list-item-label">CPU品牌</label>
+            <span class="list-item-span">高通</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">CPU型号</label>
+            <span class="list-item-span">晓龙625</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">上市时间</label>
+            <span class="list-item-span">2018-6</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">产品名称</label>
+            <span class="list-item-span">红米6 Pro</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">屏幕尺寸</label>
+            <span class="list-item-span">5.84英寸</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">机身厚度</label>
+            <span class="list-item-span">8.75mm</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">版本是否包含中国大陆</label>
+            <span class="list-item-span">是</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">电池容量</label>
+            <span class="list-item-span">4000mAh</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">品牌</label>
+            <span class="list-item-span">Xiaomi/小米</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">型号</label>
+            <span class="list-item-span">红米6 pro</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">键盘类型</label>
+            <span class="list-item-span">虚拟触屏键盘</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">分辨率</label>
+            <span class="list-item-span">2280x1080</span>
+          </li>
+          <li class="list-item">
+            <label class="list-item-label">手机类型</label>
+            <span class="list-item-span">拍照手机.音乐手机.时尚手机.智能手机.4G手机.商务手机.女性手机.老人手机</span>
+          </li>
+        </ul>
+        <div class="params-content-btn">
+          <a class="content-btn" @click="handleParamsFinish">完成</a>
+        </div>
+      </div>
     </mt-popup>
   </div>
 </template>
@@ -136,6 +196,12 @@
       handleServiceFinish() {
         this.serviceVisible = false;
       },
+      handleParamsClick() {
+        this.paramsVisible = true;
+      },
+      handleParamsFinish() {
+        this.paramsVisible = false;
+      },
     },
   };
 </script>
@@ -144,9 +210,16 @@
     height: 100%;
     overflow: scroll;
     &-header{
+      position: fixed;
+      width: 100%;
+      height: 38px;
+      top: 0;
+      left: 0;
+      transform: translateZ(9999px);
       background: #fff;
       border-bottom: 1px solid #e5e5e5;
       margin-bottom: 2px;
+      z-index: 9999;
     }
     .header-content{
       font-size: 16px;
@@ -171,6 +244,7 @@
       }
     }
     .detail-swiper{
+      padding-top: 38px;
       .phone-main-carousel{
         height: 350px;
       }
@@ -237,7 +311,6 @@
         .content-base-title{
           font-size: 16px;
           color: #333;
-          font-weight: bold;
           margin: 0;
           text-align: center;
           padding: 10px 0 20px;
@@ -275,7 +348,6 @@
         .content-other-title{
           font-size: 16px;
           color: #333;
-          font-weight: bold;
           margin: 0;
           text-align: center;
           padding: 20px 0;
@@ -315,6 +387,75 @@
           background: -o-linear-gradient(90deg, #f09a38 0%, #eb5829 100%); /* Opera 11.1 - 12.0 */
           background: -moz-linear-gradient(90deg, #f09a38 0%, #eb5829 100%); /* Firefox 3.6 - 15 */
           background: linear-gradient(90deg, #f09a38 0%, #eb5829 100%); /* 标准的语法 */
+        }
+      }
+    }
+    .detail-params{
+      width: 100%;
+      max-height: 80%;
+      overflow-y: scroll;
+      &-content{
+        background: #fff;
+      }
+      .params-content-title{
+        background: #fff;
+        font-size: 16px;
+        color: #555;
+        margin: 0;
+        text-align: center;
+        padding-top: 20px;
+        position: fixed;
+        width: 100%;
+        height: 37px;
+        top: 0;
+        left: 0;
+        transform: translateZ(9999px);
+      }
+      .params-content-list{
+        padding: 47px 0 62px;
+        .list-item{
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border-bottom: 1px solid #eeeeee;
+          &-label{
+            color: #999;
+            font-weight: normal;
+            margin: 0;
+            width: 70px;
+          }
+          &-span{
+            display: inline-block;
+            width: calc(100% - 20px);
+            color: #555;
+            padding-left: 20px;
+          }
+        }
+      }
+      .params-content-btn{
+        padding: 10px;
+        background: #fff;
+        position: fixed;
+        width: 100%;
+        height: 62px;
+        bottom: 0;
+        left: 0;
+        transform: translateZ(9999px);
+        .content-btn{
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          padding: 10px 0;
+          color: #fff;
+          border-radius: 21px;
+          height: 42px;
+          box-sizing: border-box;
+          font-size: 16px;
+          text-align: center;
+          background: -webkit-linear-gradient(90deg, #ee7f31 0%, #eb5829 100%); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(90deg, #ee7f31 0%, #eb5829 100%); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(90deg, #ee7f31 0%, #eb5829 100%); /* Firefox 3.6 - 15 */
+          background: linear-gradient(90deg, #ee7f31 0%, #eb5829 100%); /* 标准的语法 */
         }
       }
     }
