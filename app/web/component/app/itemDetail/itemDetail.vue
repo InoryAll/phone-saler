@@ -781,6 +781,7 @@
       }
     }
     .product-bottom{
+      padding-bottom: 60px;
       &-h3{
         margin: 0;
         text-align: center;
