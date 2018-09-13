@@ -114,6 +114,58 @@
             </a>
           </div>
         </div>
+        <div class="setting-content-color">
+          <mt-radio
+            class="setting-content-color-radio"
+            title="机身颜色"
+            :options="[{
+              label: '红米6Pro【3+32G】 流沙金 现货 联保凭证+套餐0元',
+              value: 'gold',
+            },{
+              label: '红米6Pro【3+32G】 曜石黑 现货 联保凭证+套餐0元',
+              value: 'black',
+            },{
+              label: '红米6Pro【3+32G】 樱花粉 现货 联保凭证+套餐0元',
+              value: 'pink',
+            },{
+              label: '红米6Pro【3+32G】 巴里蓝 现货 联保凭证+套餐0元',
+              value: 'blue',
+            }]">
+          </mt-radio>
+        </div>
+        <div class="setting-content-pack">
+          <mt-radio
+            class="setting-content-pack-radio"
+            title="套餐类型"
+            :options="[{
+              label: '标准配置',
+              value: 'normal',
+            }]">
+          </mt-radio>
+        </div>
+        <div class="setting-content-storage">
+          <mt-radio
+            class="setting-content-storage-radio"
+            title="存储容量"
+            :options="[{
+              label: '32G',
+              value: '32G',
+            },{
+              label: '64G',
+              value: '64G',
+            }]">
+          </mt-radio>
+        </div>
+        <div class="setting-content-version">
+          <mt-radio
+            class="setting-content-version-radio"
+            title="版本类型"
+            :options="[{
+              label: '中国大陆',
+              value: 'china',
+            }]">
+          </mt-radio>
+        </div>
       </div>
     </mt-popup>
     <mt-popup
@@ -187,7 +239,8 @@
   /**
    *  产品详情组件
    */
-  import { Cell, Popup } from 'mint-ui';
+  import $ from 'jquery';
+  import { Cell, Popup, Radio } from 'mint-ui';
   import Swiper from '../main/swiper/swiper';
 
   export default {
@@ -195,6 +248,7 @@
     components: {
       Cell,
       Popup,
+      Radio,
       Swiper
     },
     data() {
@@ -225,6 +279,23 @@
       handleSettingClose() {
         this.settingVisible = false;
       },
+    },
+    mounted() {
+      // 默认选中的样式处理
+      $('input[type=radio]:checked').parents(0)
+        .siblings('.mint-radio-label')
+        .addClass('active');
+      // radio事件绑定
+      $('input[type=radio]').bind('change', function() {
+        // 清除该radioGroup下的所有选中状态（重置）
+        $(this).parents('.mint-radiolist')
+          .find('.mint-radio-label')
+          .removeClass('active');
+        // 为选中项添加状态
+        $(this).parents(0)
+          .siblings('.mint-radio-label')
+          .addClass('active');
+      });
     },
   };
 </script>
@@ -531,6 +602,63 @@
           &-icon{
             color: #999;
             font-size: 20px;
+          }
+        }
+      }
+      .setting-content-color,.setting-content-pack,.setting-content-storage,.setting-content-version{
+        a{
+          text-decoration: none;
+        }
+        padding: 10px 0 0;
+        .mint-cell{
+          display: inline-block;
+          min-height: 36px;
+          margin-right: 12px;
+        }
+        &-radio{
+          .mint-radiolist-title{
+            color: #333;
+            font-size: 15px;
+            font-weight: normal;
+          }
+          .mint-radiolist-label{
+            padding: 0;
+          }
+          .mint-radio-label{
+            font-weight: normal;
+            font-size: 12px;
+            color: #333;
+            background: #f5f5f5;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-left: 0;
+          }
+          .mint-radio-label.active{
+            color: #fff;
+            background: -webkit-linear-gradient(90deg, #f09a38 0%, #ec5e2a 100%); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(90deg, #f09a38 0%, #ec5e2a 100%); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(90deg, #f09a38 0%, #ec5e2a 100%); /* Firefox 3.6 - 15 */
+            background: linear-gradient(90deg, #f09a38 0%, #ec5e2a 100%); /* 标准的语法 */
+          }
+          .mint-radio-input:checked + .mint-radio-core {
+            display: none;
+          }
+          .mint-radio-core{
+            border: none;
+            box-sizing: border-box;
+            display: inline-block;
+            background-color: transparent;
+            border-radius: 12px;
+            width: 300px;
+            height: 24px;
+            vertical-align: middle;
+            position: absolute;
+          }
+          .mint-radio-input:checked + .mint-radio-core::after{
+            display: none;
+          }
+          .mint-cell-wrapper{
+            padding: 0;
           }
         }
       }
