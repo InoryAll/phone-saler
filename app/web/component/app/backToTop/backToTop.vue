@@ -27,6 +27,7 @@
     methods: {
       handleBackToTop() {
         $('.mint-tab-container-item').animate({ scrollTop: 0 }, 300);
+        $('.phone-item-detail').animate({ scrollTop: 0 }, 300);
       },
     },
   };
@@ -41,6 +42,7 @@
     right: 10px;
     .back-to-top-btn{
       display: block;
+      text-decoration: none;
       color: #999;
       width: 50px;
       height: 50px;

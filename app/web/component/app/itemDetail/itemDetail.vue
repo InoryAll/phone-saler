@@ -287,6 +287,7 @@
         </div>
       </div>
     </mt-popup>
+    <BackToTop :isScroll="isScroll"></BackToTop>
   </div>
 </template>
 <script type="text/babel">
@@ -297,6 +298,7 @@
   import { Cell, Popup, Radio } from 'mint-ui';
   import Swiper from '../main/swiper/swiper';
   import CountUtil from './countUtil/countUtil';
+  import BackToTop from '../backToTop/backToTop';
 
   export default {
     name: 'item-detail',
@@ -305,7 +307,8 @@
       Popup,
       Radio,
       Swiper,
-      CountUtil
+      CountUtil,
+      BackToTop
     },
     data() {
       return {
@@ -313,6 +316,7 @@
         settingVisible: false,
         paramsVisible: false,
         count: 1,
+        isScroll: false,
       };
     },
     computed: {},
@@ -341,6 +345,17 @@
       },
     },
     mounted() {
+      // 滚动返回顶部的处理
+      const _this = this;
+      // $('html').animate({ scrollTop: 0 }, 10);
+      $('.phone-item-detail').unbind('scroll').bind('scroll', function() {
+        if ($('.phone-item-detail').scrollTop() > 0) {
+          _this.isScroll = true;
+        } else {
+          _this.isScroll = false;
+        }
+      });
+
       // 默认选中的样式处理
       $('input[type=radio]:checked').parents(0)
         .siblings('.mint-radio-label')
@@ -356,7 +371,7 @@
           .siblings('.mint-radio-label')
           .addClass('active');
       });
-    },
+    }
   };
 </script>
 <style lang="less">
