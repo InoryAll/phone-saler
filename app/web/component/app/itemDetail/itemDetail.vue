@@ -166,6 +166,13 @@
             }]">
           </mt-radio>
         </div>
+        <div class="setting-content-count">
+          <CountUtil title="购买数量" :count="count" :onChange="onCountChange"></CountUtil>
+        </div>
+        <div class="form-actions clearfix">
+          <a class="form-actions-cart">加入购物车</a>
+          <a class="form-actions-buy">立即购买</a>
+        </div>
       </div>
     </mt-popup>
     <mt-popup
@@ -242,6 +249,7 @@
   import $ from 'jquery';
   import { Cell, Popup, Radio } from 'mint-ui';
   import Swiper from '../main/swiper/swiper';
+  import CountUtil from './countUtil/countUtil';
 
   export default {
     name: 'item-detail',
@@ -249,13 +257,15 @@
       Cell,
       Popup,
       Radio,
-      Swiper
+      Swiper,
+      CountUtil
     },
     data() {
       return {
         serviceVisible: false,
         settingVisible: false,
         paramsVisible: false,
+        count: 1,
       };
     },
     computed: {},
@@ -278,6 +288,9 @@
       },
       handleSettingClose() {
         this.settingVisible = false;
+      },
+      onCountChange(val) {
+        this.count = val;
       },
     },
     mounted() {
@@ -393,6 +406,9 @@
       border-bottom: 10px solid #f8f8f8;
       a,a:focus,a:active{
         text-decoration: none;
+      }
+      .mint-cell,.mint-cell-wrapper{
+        background-image: none;
       }
     }
     .detail-service{
@@ -614,6 +630,7 @@
           display: inline-block;
           min-height: 36px;
           margin-right: 12px;
+          background-image: none;
         }
         &-radio{
           .mint-radiolist-title{
@@ -659,8 +676,44 @@
           }
           .mint-cell-wrapper{
             padding: 0;
+            background-image: none;
           }
         }
+      }
+      .setting-content-count{
+      }
+    }
+    .form-actions{
+      background: #fff;
+      padding-top: 10px;
+      a{
+        text-decoration: none;
+      }
+      &-cart{
+        display: block;
+        width: 50%;
+        float: left;
+        padding: 8px 0;
+        color: #fff;
+        border-radius: 18px 0 0 18px;
+        text-align: center;
+        background: -webkit-linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* Firefox 3.6 - 15 */
+        background: linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* 标准的语法 */
+      }
+      &-buy{
+        display: block;
+        width: 50%;
+        padding: 8px 0;
+        color: #fff;
+        border-radius: 0 18px 18px 0;
+        float: left;
+        text-align: center;
+        background: -webkit-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Firefox 3.6 - 15 */
+        background: linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* 标准的语法 */
       }
     }
   }
