@@ -41,6 +41,49 @@
         <span>CPU品牌 CPU型号...</span>
       </mt-cell>
     </div>
+    <div class="product-detail">
+      <h3 class="product-detail-h3">— 详情 —</h3>
+      <div class="product-detail-list">
+        <img src="../../../../web/asset/images/prod/prod-1.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-2.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-3.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-4.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-5.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-6.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-7.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-8.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-9.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-10.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-11.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-12.jpg" alt="图片" class="product-detail-list-img">
+        <img src="../../../../web/asset/images/prod/prod-13.jpg" alt="图片" class="product-detail-list-img">
+      </div>
+    </div>
+    <div class="product-bottom">
+      <h3 class="product-bottom-h3">— 已经到底啦 —</h3>
+    </div>
+    <div class="fixed-btns">
+      <div class="fixed-btns-left">
+        <ul class="fixed-btns-left-list clearfix">
+          <li class="list-item">
+            <a href="" class="list-link">
+              <i class="iconfont icon-star list-item-icon"></i>
+              <p class="list-item-p">收藏</p>
+            </a>
+          </li>
+          <li class="list-item">
+            <a href="" class="list-link">
+              <i class="iconfont icon-shopping list-item-icon"></i>
+              <p class="list-item-p">购物车</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="fixed-btns-right clearfix">
+        <a href="" class="fixed-btns-right-cart">加入购物车</a>
+        <a href="" class="fixed-btns-right-buy">立即购买</a>
+      </div>
+    </div>
     <mt-popup
       class="detail-service"
       v-model="serviceVisible"
@@ -167,7 +210,11 @@
           </mt-radio>
         </div>
         <div class="setting-content-count">
-          <CountUtil title="购买数量" :count="count" :onChange="onCountChange"></CountUtil>
+          <CountUtil
+            title="购买数量"
+            :count="count"
+            :onChange="onCountChange"
+          ></CountUtil>
         </div>
         <div class="form-actions clearfix">
           <a class="form-actions-cart">加入购物车</a>
@@ -714,6 +761,110 @@
         background: -o-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Opera 11.1 - 12.0 */
         background: -moz-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Firefox 3.6 - 15 */
         background: linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* 标准的语法 */
+      }
+    }
+    .product-detail{
+      &-h3{
+        margin: 0;
+        text-align: center;
+        color: #999;
+        background: #f8f8f8;
+        font-size: 14px;
+        padding-bottom: 10px;
+      }
+      &-list{
+        &-img{
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .product-bottom{
+      &-h3{
+        margin: 0;
+        text-align: center;
+        color: #999;
+        background: #f8f8f8;
+        font-size: 14px;
+        padding: 10px 0;
+      }
+    }
+    .fixed-btns{
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      padding: 4px;
+      &-left{
+        float: left;
+        width: 36%;
+        &-list{
+          margin: 0;
+        }
+        .list-item{
+          float: left;
+          width: 50%;
+          text-align: center;
+          &-icon{
+            color: #828282;
+            font-size: 24px;
+          }
+          &-p{
+            margin: 0;
+            color: #666;
+            font-size: 12px;
+          }
+        }
+        .list-link{
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+        }
+        .list-link:active{
+          .list-item-icon{
+            color: #ec5e2a;
+          }
+          .list-item-p{
+            color: #ec5e2a;
+          }
+        }
+      }
+      &-right{
+        float: left;
+        width: 64%;
+        padding: 5px 0;
+        a{
+          text-decoration: none;
+        }
+        &-cart{
+          display: block;
+          width: 50%;
+          float: left;
+          text-align: center;
+          padding: 10px 0;
+          border-radius: 25px 0 0 25px;
+          color: #fff;
+          background: -webkit-linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* Firefox 3.6 - 15 */
+          background: linear-gradient(90deg, #f6cc45 0%, #f09a38 100%); /* 标准的语法 */
+        }
+        &-buy{
+          display: block;
+          width: 50%;
+          float: left;
+          text-align: center;
+          padding: 10px 0;
+          border-radius: 0 25px 25px 0;
+          color: #fff;
+          background: -webkit-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* Firefox 3.6 - 15 */
+          background: linear-gradient(90deg, #ee7e31 0%, #eb5829 100%); /* 标准的语法 */
+        }
       }
     }
   }
