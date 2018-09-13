@@ -100,6 +100,7 @@
               </div>
             </li>
           </ul>
+          <div class="space"></div>
           <div class="form-actions clearfix">
             <input type="reset" value="清除选项" class="form-actions-reset">
             <input type="submit" value="确定" class="form-actions-submit">
@@ -116,6 +117,9 @@
   import { Popup, Field, Radio } from 'mint-ui';
   import _ from 'lodash';
   import FILTER_CONFIG from './filterConfig';
+
+  // 需要做fixed定位的元素
+  const FIXED_ELEMENT = ['.filter-util-pop-up-header', '.form-actions'];
 
   export default {
     name: 'filter-util-pop-up',
@@ -219,16 +223,16 @@
       padding-bottom: 60px;
       position: relative;
       .filter-util-pop-up-header{
-        position: fixed;
+        position: absolute;
         top: 0;
         width: 100%;
         height: 39px;
         line-height: 36px;
         border-bottom: 2px solid #f5f5f5;
         text-align: center;
-        /*transform: translateZ(99999px);*/
+        transform: translateZ(99999px);
         background: #fff;
-        /*z-index: 99999;*/
+        z-index: 99999;
         &-left{
           float: left;
           padding-left: 10px;
@@ -393,11 +397,11 @@
       border-top: 1px solid #e5e5e5;
     }
     .form-actions{
-      position: fixed;
+      position: absolute;
       bottom: 0;
       width: 100%;
       border-top: 1px solid #e5e5e5;
-      transform: translateZ(9999px);
+      transform: translateZ(0);
       &-reset{
         float: left;
         width: 30%;

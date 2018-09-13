@@ -42,6 +42,7 @@
   Vue.component(TabContainer.name, TabContainer);
   Vue.component(TabContainerItem.name, TabContainerItem);
 
+  // 需要进行懒加载的键值
   const LAZY_LOAD_KEY = ['购物车'];
 
   export default {

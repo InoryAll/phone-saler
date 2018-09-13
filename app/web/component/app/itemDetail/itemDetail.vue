@@ -427,15 +427,15 @@
         margin: 0;
         text-align: center;
         padding-top: 20px;
-        position: fixed;
-        width: 100%;
-        height: 37px;
-        top: 0;
-        left: 0;
-        transform: translateZ(9999px);
+        /*position: fixed;*/
+        /*width: 100%;*/
+        /*height: 37px;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        /*transform: translateZ(9999px);*/
       }
       .params-content-list{
-        padding: 47px 0 62px;
+        padding: 10px 0 0;
         .list-item{
           display: flex;
           align-items: center;
@@ -458,12 +458,12 @@
       .params-content-btn{
         padding: 10px;
         background: #fff;
-        position: fixed;
-        width: 100%;
-        height: 62px;
-        bottom: 0;
-        left: 0;
-        transform: translateZ(9999px);
+        /*position: fixed;*/
+        /*width: 100%;*/
+        /*height: 62px;*/
+        /*bottom: 0;*/
+        /*left: 0;*/
+        /*transform: translateZ(9999px);*/
         .content-btn{
           text-decoration: none;
           display: block;
