@@ -4,9 +4,9 @@ import store from '../../store/store';
 import * as Types from '../../store/app/mutation-type';
 
 import Index from './index/index';
-import ListView from './list';
 import ItemList from './itemList/itemList';
 import ItemDetail from './itemDetail/itemDetail';
+import OrderDetail from './orderDetail/orderDetail';
 
 Vue.use(VueRouter);
 
@@ -25,6 +25,10 @@ const router = new VueRouter({
     {
       path: '/detail',
       component: ItemDetail
+    },
+    {
+      path: '/order',
+      component: OrderDetail
     }
   ]
 });
