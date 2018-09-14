@@ -27,16 +27,51 @@
         </div>
       </a>
     </div>
+    <div class="phone-order-detail-products">
+      <ul class="phone-order-detail-products-list">
+        <li class="list-item">
+          <a href="" class="list-link">
+            <div class="list-item-prod clearfix">
+              <div class="list-item-prod-left">
+                <img src="../../../../web/asset/images/phone.png" alt="图片" class="list-item-prod-left-img">
+              </div>
+              <div class="list-item-prod-right">
+                <p class="list-item-prod-right-name">分期免息【比官网少50元】Xiaomi/小米红米6pro手机红米6pro</p>
+                <p class="list-item-prod-right-setting">颜色分类：曜石黑 内存大小：64g</p>
+                <p class="list-item-prod-right-service"><span class="tip">7天退换</span></p>
+                <p class="list-item-prod-right-price clearfix">
+                  <span class="price">￥<strong>49.0</strong></span>
+                  <span class="count">x1</span>
+                </p>
+              </div>
+            </div>
+          </a>
+          <div class="list-item-sending">
+            <mt-cell title="配送方式" value="快递免邮"></mt-cell>
+          </div>
+          <div class="list-item-remark">
+            <mt-field label="买家留言：" placeholder="选填：填写内容请注意规范"></mt-field>
+          </div>
+          <div class="list-item-total">
+            <span class="list-item-total-count">共1件商品</span>
+            <span class="list-item-total-cal">小计：<strong class="price">￥49.0</strong></span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script type="text/babel">
   /**
    * 订单详情页组件
    */
+  import { Cell } from 'mint-ui';
 
   export default {
     name: 'order-detail',
-    components: {},
+    components: {
+      Cell
+    },
     data() {
       return {};
     },
@@ -49,6 +84,7 @@
   .phone-order-detail{
     height: 100%;
     overflow: scroll;
+    background: #f4f4f4;
     &-header{
       position: fixed;
       width: 100%;
@@ -81,8 +117,9 @@
     }
     &-address{
       padding: 47px 10px 20px;
-      background: url("../../../../web/asset/images/border.png") left bottom repeat-x;
+      background: url("../../../../web/asset/images/border.png") #fff left bottom repeat-x;
       background-size: auto 10px;
+      border-bottom: 10px solid #f4f4f4;
       .detail-address-link{
         width: 100%;
         height: 100%;
@@ -128,6 +165,92 @@
         &-icon{
           color: #d0cfd0;
           font-size: 20px;
+        }
+      }
+    }
+    &-products{
+      &-list{
+        margin: 0;
+      }
+      .list-link{
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+      }
+      .list-item{
+        padding: 10px 0;
+        border-bottom: 10px solid #f4f4f4;
+        background: #fff;
+        &-prod{
+          background: #fafafa;
+          padding: 10px;
+          &-left{
+            float: left;
+            &-img{
+              display: block;
+              width: 80px;
+              height: 80px;
+            }
+          }
+          &-right{
+            overflow: hidden;
+            padding-left: 10px;
+            &-name{
+              margin: 0;
+              font-size: 13px;
+              color: #3e4245;
+              padding-bottom: 4px;
+            }
+            &-setting{
+              margin: 0;
+              color: #999;
+              font-size: 12px;
+            }
+            &-service{
+              margin: 0;
+              .tip{
+                color: #cb3b32;
+                border: 1px solid #cb3b32;
+                font-size: 12px;
+                padding: 0 2px;
+                border-radius: 2px;
+              }
+            }
+            &-price{
+              font-size: 14px;
+              margin: 0;
+              .price{
+                color: #ec5e2a;
+              }
+              .count{
+                color: #3e4245;
+                float: right;
+              }
+            }
+          }
+        }
+        &-sending,&-remark{
+          a{
+            text-decoration: none;
+          }
+        }
+        &-total{
+          text-align: right;
+          padding: 10px 10px 0;
+          &-count{
+            color: #333;
+            padding: 0 10px;
+            font-size: 14px;
+          }
+          &-cal{
+            font-size: 14px;
+            color: #333;
+            .price{
+              color: #ec5e2a;
+              font-size: 16px;
+            }
+          }
         }
       }
     }
