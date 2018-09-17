@@ -297,7 +297,10 @@
       &-price-btn{
         .submit-btn{
           color: #fff;
-          background: linear-gradient(90deg, #f09436 0%, #ec5e2a 100%);
+          background: -webkit-linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* Firefox 3.6 - 15 */
+          background: linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* 标准的语法 */
           text-decoration: none;
           padding: 12px 20px;
         }

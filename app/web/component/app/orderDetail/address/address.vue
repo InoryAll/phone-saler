@@ -1,5 +1,5 @@
 <template>
-  <div class="phone-address-list">
+  <div v-if="visible" class="phone-address-list">
     <mt-popup
       class="phone-address-list-pop-up"
       v-model="visible"
@@ -28,7 +28,32 @@
               <p class="list-item-address"><span class="tip">[默认地址]</span>云南省昆明市呈贡区 云南大学南苑综合楼</p>
             </a>
           </li>
+          <li class="list-item">
+            <a href="" class="list-link clearfix">
+              <div class="list-item-left">
+                <p class="list-item-left-name">王润方</p>
+              </div>
+              <div class="list-item-right">
+                <span class="list-item-right-phone">18885234915</span>
+              </div>
+              <p class="list-item-address">云南省昆明市呈贡区 云南大学南苑综合楼</p>
+            </a>
+          </li>
+          <li class="list-item">
+            <a href="" class="list-link clearfix">
+              <div class="list-item-left">
+                <p class="list-item-left-name">王润方</p>
+              </div>
+              <div class="list-item-right">
+                <span class="list-item-right-phone">18885234915</span>
+              </div>
+              <p class="list-item-address">云南省昆明市呈贡区 云南大学南苑综合楼</p>
+            </a>
+          </li>
         </ul>
+        <div class="phone-address-list-pop-up-content-actions">
+          <a class="actions-btn" href="">添加新地址</a>
+        </div>
       </div>
     </mt-popup>
   </div>
@@ -68,6 +93,7 @@
 </script>
 <style lang="less">
   .phone-address-list{
+    position: relative;
     height: 100%;
     overflow: scroll;
     background: #f4f4f4;
@@ -155,6 +181,26 @@
         display: block;
         width: 100%;
         height: 100%;
+      }
+    }
+    &-pop-up-content-actions{
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      padding: 10px;
+      background: #fff;
+      .actions-btn{
+        display: block;
+        width: 100%;
+        color: #fff;
+        background: -webkit-linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* Firefox 3.6 - 15 */
+        background: linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* 标准的语法 */
+        padding: 8px 0;
+        text-align: center;
+        border-radius: 18px;
+        text-decoration: none;
       }
     }
   }
