@@ -59,6 +59,15 @@
         </li>
       </ul>
     </div>
+    <div class="phone-order-detail-btns">
+      <span class="phone-order-detail-btns-price">
+        <span class="title">合计金额：</span>
+        <strong class="price">￥102.86</strong>
+      </span>
+      <span class="phone-order-detail-btns-price-btn">
+        <a class="submit-btn" href="">提交订单</a>
+      </span>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -251,6 +260,34 @@
               font-size: 16px;
             }
           }
+        }
+      }
+    }
+    &-btns{
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      padding: 12px 0;
+      text-align: right;
+      border-top: 1px solid #eee;
+      font-size: 14px;
+      &-price{
+        padding: 0 6px;
+        .title{
+          color: #333;
+        }
+        .price{
+          color: #ec5e2a;
+        }
+      }
+      &-price-btn{
+        .submit-btn{
+          color: #fff;
+          background: linear-gradient(90deg, #f09436 0%, #ec5e2a 100%);
+          text-decoration: none;
+          padding: 12px 20px;
         }
       }
     }
