@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="phone-order-detail-address">
-      <a href="" class="detail-address-link clearfix">
+      <a class="detail-address-link clearfix" @click="handleAddressClick">
         <div class="detail-address-left">
           <i class="iconfont icon-location detail-address-left-icon"></i>
         </div>
@@ -68,6 +68,7 @@
         <a class="submit-btn" href="">提交订单</a>
       </span>
     </div>
+    <Address :addressVisible="addressVisible" :onVisibleChange="onVisibleChange"></Address>
   </div>
 </template>
 <script type="text/babel">
@@ -75,18 +76,29 @@
    * 订单详情页组件
    */
   import { Cell } from 'mint-ui';
+  import Address from './address/address';
 
   export default {
     name: 'order-detail',
     components: {
-      Cell
+      Cell,
+      Address
     },
     data() {
-      return {};
+      return {
+        addressVisible: false,
+      };
     },
     computed: {},
     watch: {},
-    methods: {},
+    methods: {
+      handleAddressClick() {
+        this.addressVisible = true;
+      },
+      onVisibleChange(val) {
+        this.addressVisible = val;
+      },
+    },
   };
 </script>
 <style lang="less">
@@ -104,7 +116,7 @@
       background: #fff;
       border-bottom: 1px solid #e5e5e5;
       margin-bottom: 2px;
-      z-index: 9999;
+      z-index: 99;
     }
     .header-content{
       font-size: 16px;
