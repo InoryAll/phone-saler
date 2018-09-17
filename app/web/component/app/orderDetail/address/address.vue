@@ -10,7 +10,7 @@
             <div class="header-left">
               <a @click="handleAddressHide"><i class="iconfont icon-left header-icon"></i></a>
             </div>
-            {{title}}
+            选择收货地址
             <div class="header-right">
               <a class="header-right-link" href="">管理</a>
             </div>
@@ -43,7 +43,6 @@
     },
     data() {
       return {
-        title: '选择收货地址',
         visible: this.addressVisible,
       };
     },
