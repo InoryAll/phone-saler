@@ -84,10 +84,11 @@
           </li>
         </ul>
         <div class="phone-address-edit-list-pop-up-content-actions">
-          <a class="actions-btn" href="">添加新地址</a>
+          <a class="actions-btn" @click="handleAddressDetailShow">添加新地址</a>
         </div>
       </div>
     </mt-popup>
+    <AddressDetail :addressDetailVisible="addressDetailVisible" :onDetailVisibleChange="onDetailVisibleChange"></AddressDetail>
   </div>
 </template>
 <script>
@@ -95,11 +96,13 @@
    * 地址列表编辑组件
    */
   import { Popup } from 'mint-ui';
+  import AddressDetail from './addressDetail';
 
   export default {
     name: 'address-edit-list',
     components: {
-      Popup
+      Popup,
+      AddressDetail
     },
     props: {
       addressEditVisible: Boolean,
@@ -108,6 +111,7 @@
     data() {
       return {
         visible: this.addressEditVisible,
+        addressDetailVisible: false,
       };
     },
     computed: {},
@@ -126,7 +130,13 @@
     methods: {
       handleAddressEditHide() {
         this.visible = false;
-      }
+      },
+      handleAddressDetailShow() {
+        this.addressDetailVisible = true;
+      },
+      onDetailVisibleChange(val) {
+        this.addressDetailVisible = val;
+      },
     },
   };
 </script>
