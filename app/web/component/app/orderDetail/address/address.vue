@@ -12,7 +12,7 @@
             </div>
             选择收货地址
             <div class="header-right">
-              <a class="header-right-link" href="">管理</a>
+              <a class="header-right-link" @click="handleEditAddressShow">管理</a>
             </div>
           </div>
         </div>
@@ -56,12 +56,22 @@
         </div>
       </div>
     </mt-popup>
+    <AddressEdit :addressEditVisible="addressEditVisible" :onEditVisibleChange="onEditVisibleChange"></AddressEdit>
   </div>
 </template>
 <script>
+  /**
+   * 地址列表组件
+   */
+  import { Popup } from 'mint-ui';
+  import AddressEdit from './addressEdit';
+
   export default {
     name: 'address-list',
-    components: {},
+    components: {
+      Popup,
+      AddressEdit
+    },
     props: {
       addressVisible: Boolean,
       onVisibleChange: Function,
@@ -69,6 +79,7 @@
     data() {
       return {
         visible: this.addressVisible,
+        addressEditVisible: false,
       };
     },
     computed: {},
@@ -87,7 +98,13 @@
     methods: {
       handleAddressHide() {
         this.visible = false;
-      }
+      },
+      handleEditAddressShow() {
+        this.addressEditVisible = true;
+      },
+      onEditVisibleChange(val) {
+        this.addressEditVisible = val;
+      },
     },
   };
 </script>
@@ -141,6 +158,7 @@
       padding-right: 10px;
       &-link{
         color: #444;
+        text-decoration: none;
       }
     }
     &-pop-up-content-list{
@@ -181,6 +199,7 @@
         display: block;
         width: 100%;
         height: 100%;
+        text-decoration: none;
       }
     }
     &-pop-up-content-actions{
