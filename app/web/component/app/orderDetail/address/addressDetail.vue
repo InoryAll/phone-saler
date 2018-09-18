@@ -13,6 +13,27 @@
             新增收货地址
           </div>
         </div>
+        <div class="phone-address-detail-pop-up-content-form">
+          <form action="">
+            <div class="form-item">
+              <mt-field label="收货人" placeholder="收货人姓名" :attr="{ name: 'receiverName' }"></mt-field>
+            </div>
+            <div class="form-item">
+              <mt-field label="联系人电话" placeholder="联系人电话" type="tel" :attr="{ name: 'receiverPhone' }"></mt-field>
+            </div>
+            <dic class="form-item">
+              <mt-cell title="所在地区" value="请选择" is-link></mt-cell>
+            </dic>
+            <div class="form-item">
+              <mt-field label="详细地址" placeholder="请输入详细地址" :attr="{ name: 'detail' }"></mt-field>
+            </div>
+            <div class="form-item">
+              <mt-cell title="设置默认地址">
+                <mt-switch v-model="value"></mt-switch>
+              </mt-cell>
+            </div>
+          </form>
+        </div>
       </div>
     </mt-popup>
   </div>
@@ -21,10 +42,15 @@
   /**
    * 地址详情页组件（支持编辑）
    */
+  import { Popup, Cell, Field } from 'mint-ui';
 
   export default {
     name: 'address-detail',
-    components: {},
+    components: {
+      Popup,
+      Cell,
+      Field
+    },
     props: {
       addressDetailVisible: Boolean,
       onDetailVisibleChange: Function,
@@ -55,5 +81,60 @@
   };
 </script>
 <style lang="less">
-
+  .phone-address-detail{
+    position: relative;
+    height: 100%;
+    overflow: scroll;
+    background: #f4f4f4;
+    .phone-address-detail-pop-up{
+      width: 100%;
+      height: 100%;
+      background: #f4f4f4;
+    }
+    &-pop-up-content-header{
+      position: fixed;
+      width: 100%;
+      height: 38px;
+      top: 0;
+      left: 0;
+      transform: translateZ(9999px);
+      background: #fff;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 2px;
+      z-index: 9999;
+    }
+    .header-content{
+      font-size: 16px;
+      text-align: center;
+      line-height: 36px;
+      color: #000;
+    }
+    .header-icon{
+      font-size: 18px;
+      line-height: 36px;
+    }
+    .header-left{
+      float: left;
+      padding-left: 10px;
+      a{
+        text-decoration: none;
+      }
+      .header-icon{
+        color: #333;
+        font-size: 20px;
+        line-height: 36px;
+      }
+    }
+    .header-right{
+      float: right;
+      padding-right: 10px;
+      &-link{
+        color: #444;
+        text-decoration: none;
+      }
+    }
+    &-pop-up-content-form{
+      padding-top: 37px;
+    }
+  }
 </style>
