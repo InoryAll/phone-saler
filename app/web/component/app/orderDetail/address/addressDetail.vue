@@ -21,15 +21,15 @@
             <div class="form-item">
               <mt-field label="联系人电话" placeholder="联系人电话" type="tel" :attr="{ name: 'receiverPhone' }"></mt-field>
             </div>
-            <dic class="form-item">
+            <div class="form-item">
               <mt-cell title="所在地区" value="请选择" is-link @click.native="handlePickerShow"></mt-cell>
-            </dic>
+            </div>
             <div class="form-item">
               <mt-field label="详细地址" placeholder="请输入详细地址" :attr="{ name: 'detail' }"></mt-field>
             </div>
             <div class="form-item">
               <mt-cell title="设置默认地址">
-                <mt-switch v-model="value"></mt-switch>
+                <mt-switch></mt-switch>
               </mt-cell>
             </div>
             <div class="form-actions">
