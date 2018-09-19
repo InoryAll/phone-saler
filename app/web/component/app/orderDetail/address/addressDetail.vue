@@ -22,7 +22,7 @@
               <mt-field label="联系人电话" placeholder="联系人电话" type="tel" :attr="{ name: 'receiverPhone' }"></mt-field>
             </div>
             <dic class="form-item">
-              <mt-cell title="所在地区" value="请选择" is-link></mt-cell>
+              <mt-cell title="所在地区" value="请选择" is-link @click.native="handlePickerShow"></mt-cell>
             </dic>
             <div class="form-item">
               <mt-field label="详细地址" placeholder="请输入详细地址" :attr="{ name: 'detail' }"></mt-field>
@@ -39,20 +39,56 @@
         </div>
       </div>
     </mt-popup>
+    <mt-popup
+      class="phone-address-detail-picker"
+      v-model="pickerVisible"
+      position="bottom">
+      <mt-picker
+        :slots=" [
+          {
+            flex: 1,
+            values: ['江苏省', '浙江省', '上海市', '山东省', '安徽省', '云南省'],
+            className: 'slot1',
+            textAlign: 'center'
+          }, {
+            divider: true,
+            content: '-',
+            className: 'slot2'
+          }, {
+            flex: 1,
+            values: ['扬州市', '南京市', '市辖区', '常州市', '泰州市', '苏州'],
+            className: 'slot3',
+            textAlign: 'center'
+          }, {
+            divider: true,
+            content: '-',
+            className: 'slot4'
+          }, {
+            flex: 1,
+            values: ['广陵区', '邗江区', '未央区', '武进区', '新北区', '呈贡区'],
+            className: 'slot5',
+            textAlign: 'center'
+          }
+        ]"
+        @change="handlePickerChange"
+      ></mt-picker>
+    </mt-popup>
   </div>
 </template>
 <script type="text/babel">
   /**
    * 地址详情页组件（支持编辑）
    */
-  import { Popup, Cell, Field } from 'mint-ui';
+  import { Popup, Cell, Field, Switch, Picker } from 'mint-ui';
 
   export default {
     name: 'address-detail',
     components: {
       Popup,
       Cell,
-      Field
+      Field,
+      Switch,
+      Picker
     },
     props: {
       addressDetailVisible: Boolean,
@@ -61,6 +97,7 @@
     data() {
       return {
         visible: this.addressDetailVisible,
+        pickerVisible: false,
       };
     },
     computed: {},
@@ -80,6 +117,12 @@
       handleAddressDetailHide() {
         this.addressDetailVisible = false;
       },
+      handlePickerShow() {
+        this.pickerVisible = true;
+      },
+      handlePickerChange(picker, values) {
+        console.log(picker, values);
+      }
     },
   };
 </script>
@@ -165,6 +208,9 @@
           background: linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* 标准的语法 */
         }
       }
+    }
+    &-picker{
+      width: 100%;
     }
   }
 </style>
