@@ -31,7 +31,10 @@
           </form>
           <div class="phone-login-form-btn">
             <button class="form-btn-login">登录</button>
-            <a href="" class="form-btn-forget">找回密码</a>
+            <div class="clearfix">
+              <a href="" class="form-btn-forget">找回密码</a>
+              <a href="" class="form-btn-register">还没有账号，立即注册 &gt;&gt;</a>
+            </div>
           </div>
         </div>
       </div>
@@ -150,13 +153,20 @@
         .form-btn-forget{
           outline: none;
           display: block;
+          float: right;
           border: none;
-          width: 100%;
           background: transparent;
           color: #666;
-          text-align: center;
           font-size: 14px;
           border-radius: 8px;
+          margin-top: 10px;
+        }
+        .form-btn-register{
+          outline: none;
+          display: block;
+          float: left;
+          color: #666;
+          font-size: 14px;
           margin-top: 10px;
         }
       }
