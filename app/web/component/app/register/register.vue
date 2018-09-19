@@ -1,87 +1,78 @@
 <template>
-    <div v-if="visible">
-      <mt-popup
-        v-model="visible"
-        position="right"
-        class="phone-login-popUp"
-      >
-        <div class="phone-login-popUp-content">
-          <div class="phone-login-header clearfix">
-            <a class="phone-login-header-left" @click="handlePopUpClose">
-              <i class="iconfont icon-left header-left-icon"></i>
-            </a>
-            <span class="phone-login-header-span">手机密码登录</span>
+  <mt-popup
+    v-model="visible"
+    position="right"
+    class="phone-register-popUp"
+  >
+    <div class="phone-register-popUp-content">
+      <div class="phone-register-header clearfix">
+        <a class="phone-register-header-left" @click="handlePopUpClose">
+          <i class="iconfont icon-left header-left-icon"></i>
+        </a>
+        <span class="phone-register-header-span">手机密码登录</span>
+      </div>
+      <div class="phone-register-content">
+        <div class="phone-register-content-logo">
+          <img class="phone-register-content-logo-img" src="../../../../web/asset/images/loginlogo.png" alt="">
+        </div>
+        <form action="#" class="phone-register-form">
+          <div class="form-item clearfix">
+            <label for="username" class="phone-register-form-label">
+              <i class="iconfont icon-user phone-register-form-icon"></i>
+            </label>
+            <mt-field label="" :attr="{ id: 'username', name: 'username' }" placeholder="请输入手机号" type="tel"></mt-field>
           </div>
-          <div class="phone-login-content">
-            <div class="phone-login-content-logo">
-              <img class="phone-login-content-logo-img" src="../../../../web/asset/images/loginlogo.png" alt="">
-            </div>
-            <form action="#" class="phone-login-form">
-              <div class="form-item clearfix">
-                <label for="username" class="phone-login-form-label">
-                  <i class="iconfont icon-user phone-login-form-icon"></i>
-                </label>
-                <mt-field label="" :attr="{ id: 'username', name: 'username' }" placeholder="请输入手机号" type="tel"></mt-field>
-              </div>
-              <div class="form-item clearfix">
-                <label for="password" class="phone-login-form-label">
-                  <i class="iconfont icon-lock phone-login-form-icon"></i>
-                </label>
-                <mt-field label="" :attr="{ id: 'password', name: 'password' }" placeholder="请输入密码" type="password"></mt-field>
-              </div>
-            </form>
-            <div class="phone-login-form-btn">
-              <button class="form-btn-login">登录</button>
-              <div class="clearfix">
-                <a href="" class="form-btn-forget">找回密码</a>
-                <a @click="handleRegisterShow" class="form-btn-register">还没有账号，立即注册 &gt;&gt;</a>
-              </div>
-            </div>
+          <div class="form-item clearfix">
+            <label for="password" class="phone-register-form-label">
+              <i class="iconfont icon-lock phone-register-form-icon"></i>
+            </label>
+            <mt-field label="" :attr="{ id: 'password', name: 'password' }" placeholder="请输入密码" type="password"></mt-field>
+          </div>
+        </form>
+        <div class="phone-register-form-btn">
+          <button class="form-btn-login">登录</button>
+          <div class="clearfix">
+            <a href="" class="form-btn-forget">找回密码</a>
+            <a href="" class="form-btn-register">还没有账号，立即注册 &gt;&gt;</a>
           </div>
         </div>
-      </mt-popup>
-      <Register
-        :registerVisible="registerVisible"
-        :onRegisterVisibleChange="onRegisterVisibleChange"
-      ></Register>
+      </div>
     </div>
+  </mt-popup>
 </template>
 <script type="text/babel">
   /**
    * 登录组件
    */
   import { Popup, Field } from 'mint-ui';
-  import Register from '../register/register';
 
   export default {
-    name: 'login-page',
+    name: 'register-page',
     components: {
       Popup,
-      Field,
-      Register
+      Field
     },
     props: {
-      loginVisible: {
+      registerVisible: {
         type: Boolean,
       },
-      onLoginVisibleChange: Function,
+      onRegisterVisibleChange: Function,
     },
     data() {
       return {
         visible: false,
-        registerVisible: false,
       };
     },
     computed: {},
     watch: {
-      loginVisible: {
+      registerVisible: {
         handler(newValue, oldValue) {
           this.visible = newValue;
         }
       },
       visible: {
         handler(newValue, oldValue) {
-          this.onLoginVisibleChange(newValue);
+          this.onRegisterVisibleChange(newValue);
         }
       },
     },
@@ -89,17 +80,11 @@
       handlePopUpClose() {
         this.visible = false;
       },
-      handleRegisterShow() {
-        this.registerVisible = true;
-      },
-      onRegisterVisibleChange(val) {
-        this.registerVisible = val;
-      },
     },
   };
 </script>
 <style lang="less">
-  .phone-login{
+  .phone-register{
     &-popUp{
       width: 100%;
       height: 100%;
