@@ -32,6 +32,9 @@
                 <mt-switch v-model="value"></mt-switch>
               </mt-cell>
             </div>
+            <div class="form-actions">
+              <a class="form-actions-btn" href="">保存</a>
+            </div>
           </form>
         </div>
       </div>
@@ -135,6 +138,21 @@
     }
     &-pop-up-content-form{
       padding-top: 37px;
+      .form-actions{
+        padding: 16px 6px;
+        &-btn{
+          display: block;
+          width: 100%;
+          padding: 8px 0;
+          border-radius: 18px;
+          text-align: center;
+          color: #fff;
+          background: -webkit-linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* Firefox 3.6 - 15 */
+          background: linear-gradient(90deg, #f09436 0%, #ec5f2a 100%); /* 标准的语法 */
+        }
+      }
     }
   }
 </style>
