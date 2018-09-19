@@ -138,6 +138,18 @@
     }
     &-pop-up-content-form{
       padding-top: 37px;
+      .form-item{
+        a{
+          text-decoration: none;
+          color: #2c2c2c;
+        }
+        a:hover, a:focus{
+          color: #2c2c2c;
+        }
+        .mint-cell-wrapper{
+          font-size: 14px;
+        }
+      }
       .form-actions{
         padding: 16px 6px;
         &-btn{
