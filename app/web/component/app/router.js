@@ -8,6 +8,7 @@ import ItemList from './itemList/itemList';
 import ItemDetail from './itemDetail/itemDetail';
 import OrderDetail from './orderDetail/orderDetail';
 import OrderPay from './orderPay/orderPay';
+import OrderList from './orderList/orderList';
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,10 @@ const router = new VueRouter({
     {
       path: '/pay',
       component: OrderPay
+    },
+    {
+      path: '/orderList',
+      component: OrderList
     }
   ]
 });
