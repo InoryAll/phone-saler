@@ -8,9 +8,28 @@
         订单详情
       </div>
     </div>
-    <div class="phone-order-pay-status">
-      <p class="status">等待买家付款</p>
-      <p class="leftTime">剩23小时59分自动关闭</p>
+    <div class="phone-order-pay-status clearfix">
+      <div class="phone-order-pay-status-left">
+        <p class="status">等待买家付款</p>
+        <p class="leftTime">剩23小时59分自动关闭</p>
+      </div>
+      <div class="phone-order-pay-status-right">
+        <img class="phone-order-pay-status-right-img" src="../../../../web/asset/images/order.png" alt="图片">
+      </div>
+    </div>
+    <div class="phone-order-pay-receive clearfix">
+      <div class="phone-order-pay-receive-left">
+        <i class="iconfont icon-location receive-left-icon"></i>
+      </div>
+      <div class="phone-order-pay-receive-right">
+        <div class="base-info clearfix">
+          <span class="name">收货人：王润方</span>
+          <span class="phone">18885234915</span>
+        </div>
+        <p class="address">
+          收货地址：云南省 昆明市 呈贡区 云南大学南苑综合楼
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -66,7 +85,69 @@
       }
     }
     &-status{
-
+      padding: 57px 30px 20px;
+      background: -webkit-linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* Firefox 3.6 - 15 */
+      background: linear-gradient(90deg, #f09436 0%, #ec5e2a 100%); /* 标准的语法 */
+      &-left{
+        float: left;
+        color: #fff;
+      }
+      &-right{
+        float: right;
+        &-img{
+          display: block;
+          width: 80px;
+          margin-right: 20px;
+        }
+      }
+      .status{
+        margin: 0;
+        font-size: 17px;
+      }
+      .leftTime{
+        margin: 0;
+        font-size: 14px;
+        padding-top: 4px;
+      }
+    }
+    &-receive{
+      background: #fff;
+      padding: 10px;
+      border-bottom: 10px solid #f4f4f4;
+      display: flex;
+      align-items: center;
+      &-left{
+        float: left;
+        width: 40px;
+        text-align: center;
+        .receive-left-icon{
+          font-size: 24px;
+          color: #60646d;
+        }
+      }
+      &-right{
+        overflow: hidden;
+        box-sizing: border-box;
+        padding-left: 10px;
+        .base-info{
+          .name{
+            color: #666;
+            font-size: 14px;
+          }
+          .phone{
+            color: #666;
+            font-size: 14px;
+            float: right;
+          }
+        }
+        .address{
+          margin: 0;
+          color: #666;
+          font-size: 14px;
+        }
+      }
     }
   }
 </style>
