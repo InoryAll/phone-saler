@@ -23,115 +23,121 @@
           <div class="phone-order-list-contents-area">
             <ul class="phone-order-list-contents-area-list">
               <li class="list-item">
-                <div class="list-item-status">
-                  <span class="status-tip">交易关闭</span>
-                </div>
-                <ul class="list-item-products-list">
-                  <li class="list-element clearfix">
-                    <div class="list-element-left">
-                      <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
-                    </div>
-                    <div class="list-element-right clearfix">
-                      <div class="list-element-name">
-                        <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
-                        <p class="list-element-setting">黄色：均码</p>
-                        <p class="list-element-tips">
-                          <span class="tip">七天替换</span>
-                        </p>
-                      </div>
-                      <div class="list-element-price">
-                        <span class="price">￥58.36</span>
-                        <span class="count">x1</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="list-element clearfix">
-                    <div class="list-element-left">
-                      <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
-                    </div>
-                    <div class="list-element-right clearfix">
-                      <div class="list-element-name">
-                        <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
-                        <p class="list-element-setting">黄色：均码</p>
-                        <p class="list-element-tips">
-                          <span class="tip">七天替换</span>
-                        </p>
-                      </div>
-                      <div class="list-element-price">
-                        <span class="price">￥58.36</span>
-                        <span class="count">x1</span>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <div class="list-item-cal">
-                  <div class="cal-price">共2件商品 合计：￥53.86</div>
-                  <div class="cal-btn">
-                    <a href="" class="cal-btn-delete">删除订单</a>
+                <a href="" class="list-link">
+                  <div class="list-item-status">
+                    <span class="status-tip">交易关闭</span>
                   </div>
-                </div>
+                  <ul class="list-item-products-list">
+                    <li class="list-element clearfix">
+                      <div class="list-element-left">
+                        <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
+                      </div>
+                      <div class="list-element-right clearfix">
+                        <div class="list-element-name">
+                          <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
+                          <p class="list-element-setting">黄色：均码</p>
+                          <p class="list-element-tips">
+                            <span class="tip">七天替换</span>
+                          </p>
+                        </div>
+                        <div class="list-element-price">
+                          <span class="price">￥58.36</span>
+                          <span class="count">x1</span>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="list-element clearfix">
+                      <div class="list-element-left">
+                        <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
+                      </div>
+                      <div class="list-element-right clearfix">
+                        <div class="list-element-name">
+                          <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
+                          <p class="list-element-setting">黄色：均码</p>
+                          <p class="list-element-tips">
+                            <span class="tip">七天替换</span>
+                          </p>
+                        </div>
+                        <div class="list-element-price">
+                          <span class="price">￥58.36</span>
+                          <span class="count">x1</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="list-item-cal">
+                    <div class="cal-price">共2件商品 合计：￥53.86</div>
+                    <div class="cal-btn">
+                      <a href="" class="cal-btn-delete">删除订单</a>
+                    </div>
+                  </div>
+                </a>
               </li>
               <li class="list-item">
-                <div class="list-item-status">
-                  <span class="status-tip">交易关闭</span>
-                </div>
-                <ul class="list-item-products-list">
-                  <li class="list-element clearfix">
-                    <div class="list-element-left">
-                      <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
-                    </div>
-                    <div class="list-element-right clearfix">
-                      <div class="list-element-name">
-                        <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
-                        <p class="list-element-setting">黄色：均码</p>
-                        <p class="list-element-tips">
-                          <span class="tip">七天替换</span>
-                        </p>
-                      </div>
-                      <div class="list-element-price">
-                        <span class="price">￥58.36</span>
-                        <span class="count">x1</span>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <div class="list-item-cal">
-                  <div class="cal-price">共2件商品 合计：￥53.86</div>
-                  <div class="cal-btn">
-                    <a href="" class="cal-btn-delete">删除订单</a>
+                <a href="" class="list-link">
+                  <div class="list-item-status">
+                    <span class="status-tip">交易关闭</span>
                   </div>
-                </div>
+                  <ul class="list-item-products-list">
+                    <li class="list-element clearfix">
+                      <div class="list-element-left">
+                        <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
+                      </div>
+                      <div class="list-element-right clearfix">
+                        <div class="list-element-name">
+                          <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
+                          <p class="list-element-setting">黄色：均码</p>
+                          <p class="list-element-tips">
+                            <span class="tip">七天替换</span>
+                          </p>
+                        </div>
+                        <div class="list-element-price">
+                          <span class="price">￥58.36</span>
+                          <span class="count">x1</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="list-item-cal">
+                    <div class="cal-price">共2件商品 合计：￥53.86</div>
+                    <div class="cal-btn">
+                      <a href="" class="cal-btn-delete">删除订单</a>
+                    </div>
+                  </div>
+                </a>
               </li>
               <li class="list-item">
-                <div class="list-item-status">
-                  <span class="status-tip">交易关闭</span>
-                </div>
-                <ul class="list-item-products-list">
-                  <li class="list-element clearfix">
-                    <div class="list-element-left">
-                      <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
-                    </div>
-                    <div class="list-element-right clearfix">
-                      <div class="list-element-name">
-                        <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
-                        <p class="list-element-setting">黄色：均码</p>
-                        <p class="list-element-tips">
-                          <span class="tip">七天替换</span>
-                        </p>
-                      </div>
-                      <div class="list-element-price">
-                        <span class="price">￥58.36</span>
-                        <span class="count">x1</span>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <div class="list-item-cal">
-                  <div class="cal-price">共2件商品 合计：￥53.86</div>
-                  <div class="cal-btn">
-                    <a href="" class="cal-btn-delete">删除订单</a>
+                <a href="" class="list-link">
+                  <div class="list-item-status">
+                    <span class="status-tip">交易关闭</span>
                   </div>
-                </div>
+                  <ul class="list-item-products-list">
+                    <li class="list-element clearfix">
+                      <div class="list-element-left">
+                        <img class="list-element-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
+                      </div>
+                      <div class="list-element-right clearfix">
+                        <div class="list-element-name">
+                          <p class="list-element-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
+                          <p class="list-element-setting">黄色：均码</p>
+                          <p class="list-element-tips">
+                            <span class="tip">七天替换</span>
+                          </p>
+                        </div>
+                        <div class="list-element-price">
+                          <span class="price">￥58.36</span>
+                          <span class="count">x1</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="list-item-cal">
+                    <div class="cal-price">共2件商品 合计：￥53.86</div>
+                    <div class="cal-btn">
+                      <a href="" class="cal-btn-delete">删除订单</a>
+                    </div>
+                  </div>
+                </a>
               </li>
             </ul>
           </div>
