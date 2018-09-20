@@ -6,6 +6,10 @@
   </app-layout>
 </template>
 <script type="text/babel">
+  /**
+   * 前端页面顶层视图组件
+   */
+
   export default {
     computed: {
 
