@@ -31,6 +31,64 @@
         </p>
       </div>
     </div>
+    <div class="phone-order-pay-product">
+      <ul class="phone-order-pay-product-list">
+        <li class="list-item">
+          <div class="product-info clearfix">
+            <div class="product-info-left">
+              <img class="product-info-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
+            </div>
+            <div class="product-info-right clearfix">
+              <div class="product-info-right-name">
+                <p class="product-info-right-name-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
+                <p class="product-info-right-name-setting">黄色：均码</p>
+                <p class="product-info-right-name-tip"><span class="tip">七天替换</span></p>
+              </div>
+              <div class="product-info-right-price">
+                <span class="price">￥53.86</span>
+                <span class="count">x1</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-total clearfix">
+            <span class="product-total-label">商品总价</span>
+            <span class="product-total-value">￥53.86</span>
+          </div>
+        </li>
+        <li class="list-item">
+          <div class="product-info clearfix">
+            <div class="product-info-left">
+              <img class="product-info-left-img" src="../../../../web/asset/images/phone.png" alt="图片">
+            </div>
+            <div class="product-info-right clearfix">
+              <div class="product-info-right-name">
+                <p class="product-info-right-name-title">小计新款格子衬衫女学生款式宽松百搭中长款长袖防晒衣韩版潮</p>
+                <p class="product-info-right-name-setting">黄色：均码</p>
+                <p class="product-info-right-name-tip"><span class="tip">七天替换</span></p>
+              </div>
+              <div class="product-info-right-price">
+                <span class="price">￥53.86</span>
+                <span class="count">x1</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-total clearfix">
+            <span class="product-total-label">商品总价</span>
+            <span class="product-total-value">￥53.86</span>
+          </div>
+        </li>
+      </ul>
+      <div class="phone-order-pay-product-cal">
+        <div class="cal-total clearfix">
+          <span class="cal-total-label">订单总价</span>
+          <span class="cal-total-value">￥53.86</span>
+        </div>
+        <div class="cal-pay clearfix">
+          <span class="cal-pay-label">需付款</span>
+          <span class="cal-pay-value">￥53.86</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -146,6 +204,104 @@
           margin: 0;
           color: #666;
           font-size: 14px;
+        }
+      }
+    }
+    &-product{
+      padding: 10px 0;
+      background: #fff;
+      &-list{
+        margin: 0;
+        .list-item{
+          background: #fafafa;
+          padding: 0 10px;
+          border-bottom: 1px solid #e7e7e7;
+          .product-info-left{
+            float: left;
+            width: 70px;
+            &-img{
+              display: block;
+              width: 70px;
+              height: 70px;
+            }
+          }
+          .product-info-right{
+            overflow: hidden;
+            box-sizing: border-box;
+            padding-left: 10px;
+            &-name{
+              float: left;
+              width: 78%;
+              &-title{
+                margin: 0;
+                color: #0b1b27;
+                font-size: 12px;
+              }
+              &-setting{
+                margin: 0;
+                color: #999;
+                font-size: 12px;
+                padding: 2px 0;
+              }
+              &-tip{
+                margin: 0;
+                font-size: 12px;
+                .tip{
+                  color: #ec602c;
+                  background: #fdf1ed;
+                  padding: 0 6px;
+                  border-radius: 4px;
+                }
+              }
+            }
+            &-price{
+              overflow: hidden;
+              text-align: right;
+              .price{
+
+              }
+              .count{
+                color: #999;
+              }
+            }
+          }
+          .product-total{
+            background: #fff;
+            color: #999;
+            padding: 6px 0;
+            font-size: 14px;
+            &-label{
+              float: left;
+            }
+            &-value{
+              float: right;
+            }
+          }
+        }
+        .list-item + .list-item{
+          margin-top: 10px;
+        }
+      }
+      &-cal{
+        color: #3e4245;
+        padding: 0 10px;
+        .cal-total{
+          padding: 10px 0 10px;
+          &-label{
+            float: left;
+          }
+          &-value{
+            float: right;
+          }
+        }
+        .cal-pay{
+          &-label{
+            float: left;
+          }
+          &-value{
+            float: right;
+            color: #ec5e2a;
+          }
         }
       }
     }
