@@ -93,6 +93,10 @@
       <p class="phone-order-pay-detail-p">订单编号：222880513475017889</p>
       <p class="phone-order-pay-detail-p">创建时间：2018-09-20 10:47:30</p>
     </div>
+    <div class="phone-order-pay-actions">
+      <a href="" class="actions-cancel">取消订单</a>
+      <a href="" class="actions-pay">付款</a>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -116,6 +120,7 @@
     height: 100%;
     overflow: scroll;
     background: #f4f4f4;
+    padding-bottom: 50px;
     &-header{
       position: fixed;
       width: 100%;
@@ -317,6 +322,33 @@
         margin: 0;
         color: #666;
         padding: 2px 0;
+      }
+    }
+    &-actions{
+      position: fixed;
+      background: #fff;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      padding: 12px;
+      border-top: 1px solid #e7e7e7;
+      text-align: right;
+      .actions-cancel{
+        color: #666;
+        border: 1px solid #ccc;
+        padding: 6px 16px;
+        border-radius: 15px;
+        font-size: 13px;
+        margin-right: 10px;
+        text-align: center;
+      }
+      .actions-pay{
+        color: #ec612a;
+        border: 1px solid #ec632b;
+        padding: 6px 29px;
+        border-radius: 15px;
+        font-size: 13px;
+        text-align: center;
       }
     }
   }
