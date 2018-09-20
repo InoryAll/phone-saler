@@ -89,6 +89,10 @@
         </div>
       </div>
     </div>
+    <div class="phone-order-pay-detail">
+      <p class="phone-order-pay-detail-p">订单编号：222880513475017889</p>
+      <p class="phone-order-pay-detail-p">创建时间：2018-09-20 10:47:30</p>
+    </div>
   </div>
 </template>
 <script type="text/babel">
@@ -210,6 +214,7 @@
     &-product{
       padding: 10px 0;
       background: #fff;
+      border-bottom: 10px solid #f4f4f4;
       &-list{
         margin: 0;
         .list-item{
@@ -303,6 +308,15 @@
             color: #ec5e2a;
           }
         }
+      }
+    }
+    &-detail{
+      padding: 10px;
+      background: #fff;
+      &-p{
+        margin: 0;
+        color: #666;
+        padding: 2px 0;
       }
     }
   }
