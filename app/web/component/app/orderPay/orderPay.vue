@@ -120,7 +120,7 @@
     height: 100%;
     overflow: scroll;
     background: #f4f4f4;
-    padding-bottom: 50px;
+    padding-bottom: 56px;
     &-header{
       position: fixed;
       width: 100%;
