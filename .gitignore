@@ -24,3 +24,5 @@ app/view/*
 package-lock.json
 yarn.lock
 !docs/*
+!docs/swagger-editor-master/*
+!docs/swagger-ui-master/*
