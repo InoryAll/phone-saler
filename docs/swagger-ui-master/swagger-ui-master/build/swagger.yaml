@@ -14,10 +14,7 @@ tags:
 - name: "store"
   description: "Access to Petstore orders"
 - name: "user"
-  description: "Operations about user"
-  externalDocs:
-    description: "Find out more about our store"
-    url: "http://swagger.io"
+  description: "用户接口"
 schemes:
 - "http"
 paths:
@@ -339,26 +336,47 @@ paths:
           description: "Invalid ID supplied"
         404:
           description: "Order not found"
-  /user:
+  /user/register:
     post:
       tags:
       - "user"
-      summary: "Create user"
-      description: "This can only be done by the logged in user."
-      operationId: "createUser"
+      summary: "用户注册接口"
+      description: "新用户的注册接口"
+      operationId: "user register"
       produces:
-      - "application/xml"
       - "application/json"
       parameters:
       - in: "body"
         name: "body"
-        description: "Created user object"
+        description: "用户对象"
         required: true
         schema:
           $ref: "#/definitions/User"
       responses:
-        default:
-          description: "successful operation"
+        200:
+          description: "请求成功"
+          schema:
+            type: "object"
+            properties:
+              code:
+                type: "number"
+                description: "状态值"
+                example: "0"
+              data:
+                $ref: "#/definitions/User"
+        400:
+          description: "请求失败"
+          schema:
+            type: "object"
+            properties:
+              code:
+                type: "number"
+                description: "状态值"
+                example: "1"
+              message:
+                type: "string"
+                description: "错误信息"
+                example: "请求错误，请重试"
   /user/createWithArray:
     post:
       tags:
