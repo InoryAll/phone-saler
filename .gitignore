@@ -25,4 +25,4 @@ package-lock.json
 yarn.lock
 !docs/*
 !docs/swagger-editor-master/*
-!docs/swagger-ui-master/*
+!docs/swagger-ui-master/swagger-ui-master/dist/*
