@@ -13,6 +13,8 @@ module.exports = app => {
     mobile: String,
     permission: Number,
     address: [{
+      receive: String,
+      phone: String,
       province: Number,
       city: Number,
       area: Number,

@@ -1,10 +1,7 @@
 
 module.exports = app => {
-  // User Dao接口测试
-  app.get('/user/getUser', app.controller.user.getUser);
-  app.get('/user/addUser', app.controller.user.addUser);
-  app.get('/user/updateUser', app.controller.user.updateUser);
-  app.get('/user/deleteUser', app.controller.user.deleteUser);
+  // User接口
+  app.post('/user/register', app.controller.user.doUserRegister);
 
   // Admin Dao接口测试
   app.get('/admin/getAdmin', app.controller.admin.getAdmin);
