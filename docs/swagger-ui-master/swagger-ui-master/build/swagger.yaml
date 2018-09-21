@@ -1,0 +1,1156 @@
+swagger: "2.0"
+info:
+  description: "此为本项目——“手机卖场”的API文档，用于接口的定义、数据模型的定义，以方便之后系统的长期维护,如果对本项目进行之后的维护以及扩展工作，请注意在修改项目代码的同时，及时更新此文档，保证文档与代码的一致性，为以后的开发人员的开发以及维护工作节省大量的时间，在程序开发过程中，文档、数据、程序——始终是不可分离的部分."
+  version: "1.0.0"
+  title: "phone-saler"
+host: "localhost:3000"
+basePath: "/phone-saler"
+tags:
+- name: "pet"
+  description: "Everything about your Pets"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "store"
+  description: "Access to Petstore orders"
+- name: "user"
+  description: "Operations about user"
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+schemes:
+- "http"
+paths:
+  /pet:
+    post:
+      tags:
+      - "pet"
+      summary: "Add a new pet to the store"
+      description: ""
+      operationId: "addPet"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pet object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Pet"
+      responses:
+        405:
+          description: "Invalid input"
+    put:
+      tags:
+      - "pet"
+      summary: "Update an existing pet"
+      description: ""
+      operationId: "updatePet"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Pet object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/Pet"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+        405:
+          description: "Validation exception"
+  /pet/findByStatus:
+    get:
+      tags:
+      - "pet"
+      summary: "Finds Pets by status"
+      description: "Multiple status values can be provided with comma separated strings"
+      operationId: "findPetsByStatus"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "status"
+        in: "query"
+        description: "Status values that need to be considered for filter"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "available"
+          - "pending"
+          - "sold"
+          default: "available"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Pet"
+        400:
+          description: "Invalid status value"
+  /pet/findByTags:
+    get:
+      tags:
+      - "pet"
+      summary: "Finds Pets by tags"
+      description: "Muliple tags can be provided with comma separated strings. Use         tag1, tag2, tag3 for testing."
+      operationId: "findPetsByTags"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "tags"
+        in: "query"
+        description: "Tags to filter by"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Pet"
+        400:
+          description: "Invalid tag value"
+      deprecated: true
+  /pet/{petId}:
+    get:
+      tags:
+      - "pet"
+      summary: "Find pet by ID"
+      description: "Returns a single pet"
+      operationId: "getPetById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "petId"
+        in: "path"
+        description: "ID of pet to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Pet"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+    post:
+      tags:
+      - "pet"
+      summary: "Updates a pet in the store with form data"
+      description: ""
+      operationId: "updatePetWithForm"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "petId"
+        in: "path"
+        description: "ID of pet that needs to be updated"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "name"
+        in: "formData"
+        description: "Updated name of the pet"
+        required: false
+        type: "string"
+      - name: "status"
+        in: "formData"
+        description: "Updated status of the pet"
+        required: false
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+    delete:
+      tags:
+      - "pet"
+      summary: "Deletes a pet"
+      description: ""
+      operationId: "deletePet"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "petId"
+        in: "path"
+        description: "Pet id to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+  /pet/{petId}/uploadImage:
+    post:
+      tags:
+      - "pet"
+      summary: "uploads an image"
+      description: ""
+      operationId: "uploadFile"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "petId"
+        in: "path"
+        description: "ID of pet to update"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "additionalMetadata"
+        in: "formData"
+        description: "Additional data to pass to server"
+        required: false
+        type: "string"
+      - name: "file"
+        in: "formData"
+        description: "file to upload"
+        required: false
+        type: "file"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /store/inventory:
+    get:
+      tags:
+      - "store"
+      summary: "Returns pet inventories by status"
+      description: "Returns a map of status codes to quantities"
+      operationId: "getInventory"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            additionalProperties:
+              type: "integer"
+              format: "int32"
+  /store/order:
+    post:
+      tags:
+      - "store"
+      summary: "Place an order for a pet"
+      description: ""
+      operationId: "placeOrder"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "order placed for purchasing the pet"
+        required: true
+        schema:
+          $ref: "#/definitions/Order"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Order"
+        400:
+          description: "Invalid Order"
+  /store/order/{orderId}:
+    get:
+      tags:
+      - "store"
+      summary: "Find purchase order by ID"
+      description: "For valid response try integer IDs with value >= 1 and <= 10.         Other values will generated exceptions"
+      operationId: "getOrderById"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "orderId"
+        in: "path"
+        description: "ID of pet that needs to be fetched"
+        required: true
+        type: "integer"
+        maximum: 10.0
+        minimum: 1.0
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Order"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Order not found"
+    delete:
+      tags:
+      - "store"
+      summary: "Delete purchase order by ID"
+      description: "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors"
+      operationId: "deleteOrder"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "orderId"
+        in: "path"
+        description: "ID of the order that needs to be deleted"
+        required: true
+        type: "integer"
+        minimum: 1.0
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Order not found"
+  /user:
+    post:
+      tags:
+      - "user"
+      summary: "Create user"
+      description: "This can only be done by the logged in user."
+      operationId: "createUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/createWithArray:
+    post:
+      tags:
+      - "user"
+      summary: "Creates list of users with given input array"
+      description: ""
+      operationId: "createUsersWithArrayInput"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "List of user object"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/createWithList:
+    post:
+      tags:
+      - "user"
+      summary: "Creates list of users with given input array"
+      description: ""
+      operationId: "createUsersWithListInput"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "List of user object"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/login:
+    get:
+      tags:
+      - "user"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "The user name for login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "The password for login in clear text"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "string"
+          headers:
+            X-Rate-Limit:
+              type: "integer"
+              format: "int32"
+              description: "calls per hour allowed by the user"
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date in UTC when token expires"
+        400:
+          description: "Invalid username/password supplied"
+  /user/logout:
+    get:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user session"
+      description: ""
+      operationId: "logoutUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /user/{username}:
+    get:
+      tags:
+      - "user"
+      summary: "Get user by user name"
+      description: ""
+      operationId: "getUserByName"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "The name that needs to be fetched. Use user1 for testing. "
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Invalid username supplied"
+        404:
+          description: "User not found"
+    put:
+      tags:
+      - "user"
+      summary: "Updated user"
+      description: "This can only be done by the logged in user."
+      operationId: "updateUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "name that need to be updated"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Updated user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        400:
+          description: "Invalid user supplied"
+        404:
+          description: "User not found"
+    delete:
+      tags:
+      - "user"
+      summary: "Delete user"
+      description: "This can only be done by the logged in user."
+      operationId: "deleteUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "The name that needs to be deleted"
+        required: true
+        type: "string"
+      responses:
+        400:
+          description: "Invalid username supplied"
+        404:
+          description: "User not found"
+definitions:
+  User:
+    type: "object"
+    description: "用户实体"
+    properties:
+      _id:
+        type: "string"
+        description: "mongodb自动生成的_id,24位的16进制数"
+        example: "5a276272cd38720152665f17"
+      username:
+        type: "string"
+        description: "用户名，用于登录的名称"
+        example: "inory@github.com"
+      password:
+        type: "string"
+        description: "密码，用户登录的密码"
+        example: "test123456"
+      name:
+        type: "string"
+        description: "用户姓名"
+        example: "inory"
+      mobile:
+        type: "string"
+        description: "手机号码"
+        example: "15866645987"
+      permission:
+        type: "number"
+        description: "权限等级"
+        example: "1"
+      address:
+        type: "array"
+        description: "地址数组"
+        items:
+          type: "object"
+          description: "地址的具体信息"
+          properties:
+            receive:
+              type: "string"
+              description: "收件人"
+              example: "张三"
+            phone:
+              type: "string"
+              description: "收件人电话"
+              example: "15861368488"
+            province:
+              type: "string"
+              description: "省"
+              example: "江苏省"
+            city:
+              type: "string"
+              description: "市"
+              example: "扬州市"
+            area:
+              type: "string"
+              description: "区"
+              example: "广陵区"
+            detail:
+              type: "string"
+              description: "详细地址"
+              example: "瘦西湖小区108幢901室"
+            isDefault:
+              type: "boolean"
+              description: "是否是默认地址"
+              example: "false"
+      create:
+        type: "object"
+        description: "创建的信息"
+        properties:
+          _u:
+            type: "string"
+            description: "创建人的用户id"
+            example: "5a276272cd38720152665f17"
+          _t:
+            type: "number"
+            description: "创建的时间戳"
+            example: "1533274784084"
+      update:
+        type: "array"
+        description: "更新的信息"
+        items:
+          type: "object"
+          properties:
+            _u:
+              type: "string"
+              description: "更新人的用户id"
+              example: "5a276272cd38720152665f17"
+            _t:
+              type: "number"
+              description: "更新人的时间戳"
+              example: "1533274784084"
+      _d:
+        type: "boolean"
+        description: "删除标志"
+        example: "false"
+    xml:
+      name: "User"
+  Admin:
+    type: "object"
+    description: "管理员实体"
+    properties:
+      _id:
+        type: "string"
+        description: "mongodb自动生成的_id,24位的16进制数"
+        example: "5a276272cd38720152665f17"
+      username:
+        type: "string"
+        description: "管理员账户名"
+        example: "inory@github.com"
+      password:
+        type: "string"
+        description: "管理员密码"
+        example: "test123456"
+      name:
+        type: "string"
+        description: "管理员姓名"
+        example: "inory"
+      mobile:
+        type: "string"
+        description: "管理员电话"
+        example: "15866678945"
+      isSuper:
+        type: "boolean"
+        description: "超级管理员标志——唯一"
+        example: "false"
+      create:
+        type: "object"
+        description: "创建的信息"
+        properties:
+          _u:
+            type: "string"
+            description: "创建人的用户id"
+            example: "5a276272cd38720152665f17"
+          _t:
+            type: "number"
+            description: "创建的时间戳"
+            example: "1533274784084"
+      update:
+        type: "array"
+        description: "更新的信息"
+        items:
+          type: "object"
+          properties:
+            _u:
+              type: "string"
+              description: "更新人的用户id"
+              example: "5a276272cd38720152665f17"
+            _t:
+              type: "number"
+              description: "更新人的时间戳"
+              example: "1533274784084"
+      _d:
+        type: "boolean"
+        description: "删除标志"
+        example: "false"
+    xml:
+      name: "Admin"
+  Product:
+    type: "object"
+    description: "产品实体"
+    properties:
+      _id:
+        type: "string"
+        description: "mongodb自动生成的_id,24位的16进制数"
+        example: "5a276272cd38720152665f17"
+      name:
+        type: "string"
+        description: "产品名称"
+        example: "正品【3年保修】小米红米6 pro全面屏手机6a"
+      type:
+        type: "string"
+        description: "产品类型"
+        example: "mobile"
+      price:
+        type: "array"
+        description: "价格信息"
+        items:
+          type: "object"
+          properties:
+            settings:
+              type: "object"
+              description: "配置信息"
+              properties:
+                color:
+                  type: "string"
+                  description: "机身颜色"
+                  example: "black"
+                rom:
+                  type: "string"
+                  description: "存储容量"
+                  example: "2G"
+                versionType:
+                  type: "string"
+                  description: "版本类型"
+                  example: "chinese"
+            price:
+              type: "number"
+              description: "对应的价格信息"
+              example: "1275"
+      count:
+        type: "number"
+        description: "销量"
+        example: "8019"
+      preview:
+        type: "array"
+        description: "预览图"
+        items:
+          type: "string"
+          description: "预览图的url"
+          example: "http://localhost:8080/..."
+      settings:
+        type: "object"
+        description: "产品的详细参数"
+        properties:
+          cpu:
+            type: "string"
+            description: "CPU品牌"
+            example: "高通"
+          cpuVersion:
+            type: "string"
+            description: "CPU型号"
+            example: "晓龙625"
+          showOnTime:
+            type: "number"
+            description: "上市时间"
+            example: "1533613133517"
+          mobileName:
+            type: "string"
+            description: "产品名称"
+            example: "红米6 pro"
+          screen:
+            type: "number"
+            description: "屏幕尺寸"
+            example: "5.84"
+          thickness:
+            type: "number"
+            description: "机身厚度"
+            example: "8.75"
+          containChina:
+            type: "boolean"
+            description: "版本是否包含中国大陆"
+            example: "true"
+          battery:
+            type: "number"
+            description: "电池容量"
+            example: "4000"
+          brand:
+            type: "string"
+            description: "品牌"
+            example: "xiaomi/小米"
+          model:
+            type: "string"
+            description: "型号"
+            example: "红米6 pro"
+          network:
+            type: "string"
+            description: "网络类型"
+            example: "4G全网通"
+          style:
+            type: "string"
+            description: "款式"
+            example: "直板"
+          color:
+            type: "array"
+            description: "颜色"
+            items:
+              type: "object"
+              properties:
+                label:
+                  type: "string"
+                  description: "显示值label"
+                  example: "红色"
+                value:
+                  type: "string"
+                  description: "映射值value"
+                  example: "red"
+          pack:
+            type: "string"
+            description: "该字段用于套餐类型，目前暂无"
+          backCamera:
+            type: "string"
+            description: "后置摄像头"
+            example: "1200万+500万 AI双摄"
+          os:
+            type: "string"
+            description: "操作系统"
+            example: "MIUI"
+          attachment:
+            type: "array"
+            description: "附加功能"
+            items:
+              type: "string"
+              description: "附加功能"
+              example: "光线感应"
+          isNew:
+            type: "string"
+            description: "宝贝成色"
+            example: "全新"
+          afterSale:
+            type: "string"
+            description: "售后服务"
+            example: "全国联保"
+          touch:
+            type: "string"
+            description: "触摸屏类型"
+            example: "电容屏，多点触控"
+          ram:
+           type: "array"
+           description: "运行内存RAM"
+           items:
+            type: "string"
+            description: "运行内存RAM"
+            example: "2GB"
+          rom:
+            type: "array"
+            description: "存储容量"
+            items:
+              type: "object"
+              properties:
+                label:
+                  type: "string"
+                  description: "显示值label"
+                  example: "2GB"
+                value:
+                  type: "string"
+                  description: "映射值value"
+                  example: "2GB"
+          keyboard:
+            type: "string"
+            description: "键盘类型"
+            example: "虚拟触屏键盘"
+          resolutionRatio:
+            type: "string"
+            description: "分辨率"
+            example: "2280*1080"
+          mobileType:
+            type: "array"
+            description: "手机类型"
+            items:
+              type: "string"
+              description: "手机类型关键词"
+              example: "智能手机"
+          batteryType:
+            type: "string"
+            description: "电池类型"
+            example: "不可拆卸式电池"
+          cameraType:
+            type: "string"
+            description: "摄像头类型"
+            example: "三摄像头(后双)"
+          videoShowType:
+            type: "string"
+            description: "视频显示格式"
+            example: "1080P(全高清D5)"
+          networkType:
+            type: "string"
+            description: "网络模式"
+            example: "双卡双待"
+          cpuCounts:
+            type: "number"
+            description: "核心数目"
+            example: "8"
+          cpuHz:
+            type: "number"
+            description: "cpu频率"
+            example: "2.0"
+          versionType:
+            type: "array"
+            description: "版本类型"
+            items:
+              type: "object"
+              properties:
+                label:
+                  type: "string"
+                  description: "显示值label"
+                  example: "中国"
+                velue:
+                  type: "string"
+                  description: "映射值value"
+                  example: "china"
+      service:
+        type: "object"
+        description: "服务"
+        properties:
+          base:
+            type: "array"
+            description: "基础服务"
+            items:
+              type: "object"
+              properties:
+                header:
+                  type: "string"
+                  description: "综述"
+                  example: "7天无理由"
+                body:
+                  type: "string"
+                  description: "详细"
+                  example: "满足七天无理由退换货申请的前提下"
+          other:
+            type: "array"
+            description: "其他服务"
+            items:
+              type: "string"
+              description: "其他的服务支持"
+              example: "微信支付"
+      judges:
+        type: "string"
+        description: "此商品的评价信息"
+      des:
+        type: "string"
+        description: "商品的详细描述"
+        example: "<img src=.......>"
+      create:
+        type: "object"
+        description: "创建的信息"
+        properties:
+          _u:
+            type: "string"
+            description: "创建人的用户id"
+            example: "5a276272cd38720152665f17"
+          _t:
+            type: "number"
+            description: "创建的时间戳"
+            example: "1533274784084"
+      update:
+        type: "array"
+        description: "更新的信息"
+        items:
+          type: "object"
+          properties:
+            _u:
+              type: "string"
+              description: "更新人的用户id"
+              example: "5a276272cd38720152665f17"
+            _t:
+              type: "number"
+              description: "更新人的时间戳"
+              example: "1533274784084"
+      _d:
+        type: "boolean"
+        description: "删除标志"
+        example: "false"
+    xml:
+      name: "Product"
+  Order:
+    type: "object"
+    description: "订单实体"
+    properties:
+      _id:
+        type: "string"
+        description: "mongodb自动生成的_id,24位的16进制数"
+        example: "5a276272cd38720152665f17"
+      status:
+        type: "number"
+        description: "订单状态"
+        example: "0"
+      product:
+        $ref: "#/definitions/Product"
+      user:
+        $ref: "#/definitions/User"
+      price:
+        type: "number"
+        description: "产品的单价"
+        example: "1280"
+      count:
+        type: "number"
+        description: "购买的产品的数量"
+        example: "2"
+      color:
+        type: "string"
+        description: "颜色"
+        example: "red"
+      rom:
+        type: "string"
+        description: "容量"
+        example: "2GB"
+      versionType:
+        type: "string"
+        description: "版本类型"
+        example: "chinese"
+      create:
+        type: "object"
+        description: "创建的信息"
+        properties:
+          _u:
+            type: "string"
+            description: "创建人的用户id"
+            example: "5a276272cd38720152665f17"
+          _t:
+            type: "number"
+            description: "创建的时间戳"
+            example: "1533274784084"
+      update:
+        type: "array"
+        description: "更新的信息"
+        items:
+          type: "object"
+          properties:
+            _u:
+              type: "string"
+              description: "更新人的用户id"
+              example: "5a276272cd38720152665f17"
+            _t:
+              type: "number"
+              description: "更新人的时间戳"
+              example: "1533274784084"
+      _d:
+        type: "boolean"
+        description: "删除标志"
+        example: "false"
+    xml:
+      name: "Order"
+  Cart:
+    type: "object"
+    description: "购物车实体"
+    properties:
+      _id:
+        type: "string"
+        description: "mongodb自动生成的_id,24位的16进制数"
+        example: "5a276272cd38720152665f17"
+      product:
+        $ref: "#/definitions/Product"
+      user:
+        $ref: "#/definitions/User"
+      price:
+        type: "number"
+        description: "产品的单价"
+        example: "1280"
+      count:
+        type: "number"
+        description: "购买的产品的数量"
+        example: "2"
+      color:
+        type: "string"
+        description: "颜色"
+        example: "red"
+      rom:
+        type: "string"
+        description: "容量"
+        example: "2GB"
+      versionType:
+        type: "string"
+        description: "版本类型"
+        example: "chinese"
+      create:
+        type: "object"
+        description: "创建的信息"
+        properties:
+          _u:
+            type: "string"
+            description: "创建人的用户id"
+            example: "5a276272cd38720152665f17"
+          _t:
+            type: "number"
+            description: "创建的时间戳"
+            example: "1533274784084"
+      update:
+        type: "array"
+        description: "更新的信息"
+        items:
+          type: "object"
+          properties:
+            _u:
+              type: "string"
+              description: "更新人的用户id"
+              example: "5a276272cd38720152665f17"
+            _t:
+              type: "number"
+              description: "更新人的时间戳"
+              example: "1533274784084"
+      _d:
+        type: "boolean"
+        description: "删除标志"
+        example: "false"
+    xml:
+      name: "Cart"
+  Config:
+    type: "object"
+    description: "配置类实体"
+    properties:
+      type:
+        type: "string"
+        description: "配置类型"
+        example: "color"
+      config:
+        type: "array"
+        description: "配置数组"
+        items:
+          type: "object"
+          properties:
+            label:
+              type: "string"
+              description: "显示值label"
+              example: "红色"
+            value:
+              type: "string"
+              description: "映射值value"
+              example: "red"
+      create:
+        type: "object"
+        description: "创建的信息"
+        properties:
+          _u:
+            type: "string"
+            description: "创建人的用户id"
+            example: "5a276272cd38720152665f17"
+          _t:
+            type: "number"
+            description: "创建的时间戳"
+            example: "1533274784084"
+      update:
+        type: "array"
+        description: "更新的信息"
+        items:
+          type: "object"
+          properties:
+            _u:
+              type: "string"
+              description: "更新人的用户id"
+              example: "5a276272cd38720152665f17"
+            _t:
+              type: "number"
+              description: "更新人的时间戳"
+              example: "1533274784084"
+      _d:
+        type: "boolean"
+        description: "删除标志"
+        example: "false"
+    xml:
+      name: "Config"
