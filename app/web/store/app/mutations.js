@@ -1,8 +1,9 @@
-'use strict';
+/**
+ * mutation
+ * Created by tianrenjie on 2018/9/25
+ */
 
 import {
-  SET_ARTICLE_LIST,
-  SET_ARTICLE_DETAIL,
   ROUTE_CHANGE,
   TAB_BAR_CHANGE,
 } from './mutation-type';
