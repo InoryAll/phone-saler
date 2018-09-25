@@ -7,12 +7,14 @@ const axios = require('axios');
 class Api {
   static createAxiosAPI(options) {
     return (data) => {
-      axios({
-        method: options.method,
-        url: options.url,
-        data: JSON.stringify(data),
-        headers: { 'Content-Type': 'application/json' },
-      });
+      return ((data) => {
+        axios({
+          method: options.method,
+          url: options.url,
+          data: JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json' },
+        });
+      })(data);
     };
   }
 }
