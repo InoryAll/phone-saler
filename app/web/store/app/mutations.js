@@ -15,11 +15,5 @@ const mutations = {
   [TAB_BAR_CHANGE] (state, { tabKey }) {
     state.tabKey = tabKey;
   },
-  [SET_ARTICLE_LIST] (state, items){
-    state.articleList = items;
-  },
-  [SET_ARTICLE_DETAIL](state, data) {
-    state.article = data;
-  }
 };
 export default mutations;
