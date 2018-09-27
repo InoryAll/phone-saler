@@ -10,9 +10,9 @@ const Validator = require('../util/validator');
 class UserService {
   // 用户注册服务(普通接口)
   static async userRegister(ctx) {
-    const user_obj = ctx.body;
+    const user_obj = ctx.request.body;
     try {
-      if (_.isEmpty(await UserDao.getUser(ctx, user_obj))) {
+      if (_.isEmpty(await UserDao.getUser(ctx, user_obj).data)) {
         const validate = new Validator().validate([{
           data: user_obj.username,
           rule: [{

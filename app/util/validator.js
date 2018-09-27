@@ -35,7 +35,7 @@ class Validator {
           _.map(item.rule, function(it) {
             // 必要性判断
             if (!_.isUndefined(it.required) && it.required === true) {
-              !_.isNumber(item.data) && _.isEmpty(item.data) && _this.errors.push(it.message);
+              !_.isNumber(item.data) && _.isEmpty(item.data) && _this.error.push(it.message);
             }
             // 类型判断(number, tel, email)
             if (!_.isUndefined(it.type)) {
@@ -43,13 +43,13 @@ class Validator {
               const email_reg = /^(\w+)@(\w{2,6})\.(\w{2,4})$/gi;
               switch (it.type) {
                 case 'number':
-                  !_.isNumber(it.data) && _this.errors.push(it.message);
+                  !_.isNumber(item.data) && _this.error.push(it.message);
                   break;
                 case 'tel':
-                  !tel_reg.test(it.data) && _this.errors.push(it.message);
+                  !tel_reg.test(item.data) && _this.error.push(it.message);
                   break;
                 case 'email':
-                  !email_reg.test(it.data) && _this.errors.push(it.message);
+                  !email_reg.test(item.data) && _this.error.push(it.message);
                   break;
                 default:
                   break;
