@@ -12,7 +12,8 @@ class UserService {
   static async userRegister(ctx) {
     const user_obj = ctx.request.body;
     try {
-      if (_.isEmpty(await UserDao.getUser(ctx, user_obj).data)) {
+      const user = await UserDao.getUser(ctx, { username: user_obj.username });
+      if (_.isEmpty(user.data)) {
         const validate = new Validator().validate([{
           data: user_obj.username,
           rule: [{
