@@ -5,7 +5,7 @@
         <div class="header-left">
           <i class="iconfont icon-left header-icon"></i>
         </div>
-        我的订单
+        <span class="header-content-text">我的订单</span>
       </div>
     </div>
     <div class="phone-order-list-tabs">
@@ -198,6 +198,9 @@
       font-size: 16px;
       text-align: center;
       line-height: 36px;
+      &-text{
+        margin-left: -30px;
+      }
     }
     .header-icon{
       font-size: 18px;
