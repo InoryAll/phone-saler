@@ -15,24 +15,24 @@
         <div class="phone-register-content-logo">
           <img class="phone-register-content-logo-img" src="../../../../web/asset/images/loginlogo.png" alt="">
         </div>
-        <form action="#" class="phone-register-form">
+        <form action="/user/register" class="phone-register-form" method="post">
           <div class="form-item clearfix">
             <label for="username" class="phone-register-form-label">
               <i class="iconfont icon-user phone-register-form-icon"></i>
             </label>
-            <mt-field label="" :attr="{ id: 'reg-username', name: 'reg-username' }" placeholder="请输入手机号" type="tel"></mt-field>
+            <mt-field v-model="username" label="" :attr="{ id: 'reg-username', name: 'reg-username', maxlength: 11 }" placeholder="请输入手机号" type="tel"></mt-field>
           </div>
           <div class="form-item clearfix">
             <label for="password" class="phone-register-form-label">
               <i class="iconfont icon-lock phone-register-form-icon"></i>
             </label>
-            <mt-field label="" :attr="{ id: 'reg-password', name: 'reg-password' }" placeholder="请输入密码" type="password"></mt-field>
+            <mt-field v-model="password" label="" :attr="{ id: 'reg-password', name: 'reg-password' }" placeholder="请输入密码" type="password"></mt-field>
           </div>
           <div class="form-item clearfix">
             <label for="captcha" class="phone-register-form-label">
               <i class="iconfont icon-key phone-register-form-icon"></i>
             </label>
-            <mt-field label="" :attr="{ id: 'captcha', name: 'captcha' }" placeholder="验证码">
+            <mt-field v-model="captcha" label="" :attr="{ id: 'captcha', name: 'captcha', maxlength: 4 }" placeholder="验证码" type="tel">
               <mt-button
                 @click.native="handleCaptchaClick"
                 class="form-item-btn"
@@ -48,7 +48,7 @@
           </div>
         </form>
         <div class="phone-register-form-btn">
-          <button class="form-btn-login">注册</button>
+          <button class="form-btn-login" @click="handleRegisterClick">注册</button>
           <div class="clearfix">
             <a @click="handlePopUpClose" class="form-btn-register">已有账号，立即登录 &gt;&gt;</a>
           </div>
@@ -61,14 +61,18 @@
   /**
    * 登录组件
    */
-  import { Popup, Field, Button } from 'mint-ui';
+  import { Popup, Field, Button, Toast } from 'mint-ui';
+  import _ from 'lodash';
+  import * as Types from './vuex/mutation-type';
+  import Validator from '../../../../util/validator';
 
   export default {
     name: 'register-page',
     components: {
       Popup,
       Field,
-      Button
+      Button,
+      Toast
     },
     props: {
       registerVisible: {
@@ -82,6 +86,10 @@
         captchaText: '发送验证码',
         captchaDisabled: false,
         count: 60,
+        // 表单数据绑定值
+        username: '',
+        password: '',
+        captcha: '',
       };
     },
     computed: {},
@@ -117,11 +125,51 @@
             this.captchaText = '发送验证码';
           }
         }, 1000);
-      }
+      },
+      handleRegisterClick() {
+        const validate = new Validator().validate([{
+          data: this.username,
+          rule: [{
+            required: true,
+            message: '用户名不能为空！',
+          }, {
+            type: 'tel',
+            message: '用户名格式不正确！',
+          }],
+        }, {
+          data: this.password,
+          rule: [{
+            required: true,
+            message: '密码不能为空！',
+          }],
+        }, {
+          data: this.captcha,
+          rule: [{
+            required: true,
+            message: '验证码不能为空！',
+          }],
+        }]);
+        if (_.isEmpty(validate.error)) {
+          const params = {
+            username: this.username,
+            password: this.password,
+            captcha: this.captcha,
+          };
+          return Promise.all([
+            this.$store.dispatch(Types.DO_REGISTER, { params })
+          ]);
+        } else {
+          Toast({ message: validate.error.join('\n') });
+          return 0;
+        }
+      },
     },
   };
 </script>
 <style lang="less">
+  .mint-toast{
+    z-index: 10000;
+  }
   .phone-register{
     &-popUp{
       width: 100%;

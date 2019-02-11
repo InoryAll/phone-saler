@@ -1,8 +1,9 @@
-'use strict';
+/**
+ * mutation
+ * Created by tianrenjie on 2018/9/25
+ */
 
 import {
-  SET_ARTICLE_LIST,
-  SET_ARTICLE_DETAIL,
   ROUTE_CHANGE,
   TAB_BAR_CHANGE,
 } from './mutation-type';
@@ -14,11 +15,5 @@ const mutations = {
   [TAB_BAR_CHANGE] (state, { tabKey }) {
     state.tabKey = tabKey;
   },
-  [SET_ARTICLE_LIST] (state, items){
-    state.articleList = items;
-  },
-  [SET_ARTICLE_DETAIL](state, data) {
-    state.article = data;
-  }
 };
 export default mutations;

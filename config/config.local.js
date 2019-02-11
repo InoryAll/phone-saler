@@ -24,7 +24,12 @@ module.exports = app => {
     domainWhiteList.push(`http://${localIP}:${port}`);
   });
 
-  exports.security = { domainWhiteList };
+  exports.security = {
+    domainWhiteList,
+    csrf: {
+      enable: false,
+    },
+  };
 
   return exports;
 };

@@ -2,6 +2,7 @@
  * UserDao
  * Created by tianrenjie on 2018/8/20
  */
+const moment = require('moment');
 const Response = require('../util/response');
 
 class UserDao {
@@ -16,7 +17,27 @@ class UserDao {
   }
   static async addUser(ctx, user_obj) {
     const UserModel = ctx.model.User;
+    const default_user = {
+      username: undefined,
+      password: undefined,
+      name: undefined,
+      mobile: undefined,
+      permission: 1,
+      address: [],
+      create: {
+        _u: undefined,
+        _t: moment().valueOf(),
+      },
+      update: [
+        {
+          _u: undefined,
+          _t: moment().valueOf(),
+        }
+      ],
+      _d: false,
+    };
     const user = new UserModel({
+      ...default_user,
       ...user_obj,
     });
     try {

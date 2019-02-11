@@ -4,7 +4,7 @@
  */
 
 const getters = {
-  tabKey: state => state.tabKey,
+  user: state => state.user,
 };
 
 export default getters;
